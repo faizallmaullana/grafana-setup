@@ -1,0 +1,108 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+  external_labels:
+    monitor: 'prometheus'
+
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets: []
+
+rule_files: []
+
+scrape_configs:
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['prometheus:9090']
+
+  - job_name: 'backend'
+    scrape_interval: 10s
+    http_headers:
+      X-API-Key:
+        values:
+          - "kelolakey380600"
+    static_configs:
+      # - targets:
+      #     - 'host.docker.internal:8080'
+      #   labels:
+      #     service: 'Localhost'
+      #     env: 'prod'
+      - targets:
+          - 'testlive.kelolaaja.id'
+        labels:
+          service: 'Test Live'
+      - targets:
+          - 'sriendo.kelolaaja.id'
+        labels:
+          service: 'Sriendo'
+      - targets:
+          - 'aura.kelolaaja.id'
+        labels:
+          service: 'Aura Kebab'
+      - targets:
+          - 'karyaabadi.kelolaaja.id'
+        labels:
+          service: 'Karya Abadi Sejahtera'
+      # - targets:
+      #     - 'app.demo.kelolaaja.id'
+      #   labels:
+      #     service: 'App Demo'
+      #     env: 'prod'
+      - targets:
+          - 'mbfurnistore.kelolaaja.id'
+        labels:
+          service: 'MB Furnistore'
+      - targets:
+          - 'alyadwik.kelolaaja.id'
+        labels:
+          service: 'Alya Dwi Kerupuk'
+      - targets:
+          - 'dawang.kelolaaja.id'
+        labels:
+          service: 'Dawang'
+      - targets:
+          - 'subaru.kelolaaja.id'
+        labels:
+          service: 'Subaru Alam Makmur'
+      - targets:
+          - 'tiarakurnia.kelolaaja.id'
+        labels:
+          service: 'Tiara Kurnia'
+      - targets:
+          - 'sumberrezeki.kelolaaja.id'
+        labels:
+          service: 'Sumber Rezeki'
+      - targets:
+          - 'csamorfosa.kelolaaja.id'
+        labels:
+          service: 'CSA Morfosa'
+      - targets:
+          - 'sambalbusanti.kelolaaja.id'
+        labels:
+          service: 'Sambal Bu Santi'
+      - targets:
+          - 'sekawan.kelolaaja.id'
+        labels:
+          service: 'Sekawan'
+      - targets:
+          - 'gloriacell.kelolaaja.id'
+        labels:
+          service: 'Gloria Cell'
+      - targets:
+          - 'megahmandirilestari.kelolaaja.id'
+        labels:
+          service: 'Megah Mandiri Lestari'
+      - targets:
+          - 'damikabuanaindonesia.kelolaaja.id'
+        labels:
+          service: 'Damika Buana Indonesia'
+      - targets:
+          - 'tib.kelolaaja.id'
+        labels:
+          service: 'Tiga Inspira Bersama'
+    metrics_path: '/api/v1/metrics'
+
+  - job_name: 'node-exporter'
+    static_configs:
+      - targets: ['node-exporter:9100']
