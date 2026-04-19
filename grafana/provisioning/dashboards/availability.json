@@ -5,8 +5,8 @@
     "name": "backend-monitoring",
     "namespace": "default",
     "uid": "e23e9ccd-e692-475d-8ff5-538ed98e642d",
-    "resourceVersion": "1776581283338011",
-    "generation": 88,
+    "resourceVersion": "1776581827030013",
+    "generation": 89,
     "creationTimestamp": "2026-04-13T07:20:45Z",
     "labels": {
       "grafana.app/deprecatedInternalID": "3459566040236032"
@@ -22,7 +22,7 @@
       "grafana.app/sourcePath": "/etc/grafana/provisioning/dashboards/availability.json",
       "grafana.app/sourceTimestamp": "1776362185000",
       "grafana.app/updatedBy": "user:afibudzz8mjgge",
-      "grafana.app/updatedTimestamp": "2026-04-19T06:48:03Z"
+      "grafana.app/updatedTimestamp": "2026-04-19T06:57:07Z"
     }
   },
   "spec": {
@@ -222,7 +222,7 @@
                       },
                       "spec": {
                         "editorMode": "code",
-                        "expr": "((sum by(service) (rate(finpos_http_requests_total{job=\"backend\", status!~\"200\"}[24h]))) / (sum by(service) (rate(finpos_http_requests_total{job=\"backend\", endpoint!~\"/api/ping|/api/v1/metrics\"}[24h])))) > 0.01",
+                        "expr": "((sum by(service) (rate(finpos_http_requests_total{job=\"backend\", status!~\"2.*\"}[24h]))) / (sum by(service) (rate(finpos_http_requests_total{job=\"backend\", endpoint!~\"/api/ping|/api/v1/metrics\"}[24h])))) > 0.01",
                         "legendFormat": "__auto",
                         "range": true
                       }
@@ -322,8 +322,8 @@
                         "name": "PBFA97CFB590B2093"
                       },
                       "spec": {
-                        "editorMode": "code",
-                        "expr": "(sum by(endpoint) (\n  rate(finpos_http_requests_total{job=\"backend\", status=\"200\", endpoint!~\"/api/ping|/api/v1/metrics\"}[24h])\n) \n/ \nsum by(endpoint) (\n  rate(finpos_http_requests_total{job=\"backend\", endpoint!~\"/api/ping|/api/v1/metrics\"}[24h])\n)) > 0.01",
+                        "editorMode": "builder",
+                        "expr": "(sum by(endpoint) (rate(finpos_http_requests_total{job=\"backend\", status!~\"2.*\", endpoint!~\"/api/ping|/api/v1/metrics\"}[24h])) > 0.01) / (sum by(endpoint) (rate(finpos_http_requests_total{job=\"backend\", endpoint!~\"/api/ping|/api/v1/metrics\"}[24h])))",
                         "legendFormat": "__auto",
                         "range": true
                       }
