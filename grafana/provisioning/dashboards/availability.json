@@ -4,12 +4,12 @@
   "metadata": {
     "name": "backend-monitoring",
     "namespace": "default",
-    "uid": "fc1d29fc-bf63-43ef-945d-c2ac039b30d5",
-    "resourceVersion": "1776326478251007",
-    "generation": 67,
-    "creationTimestamp": "2026-04-15T18:11:03Z",
+    "uid": "e23e9ccd-e692-475d-8ff5-538ed98e642d",
+    "resourceVersion": "1776575611703999",
+    "generation": 82,
+    "creationTimestamp": "2026-04-13T07:20:45Z",
     "labels": {
-      "grafana.app/deprecatedInternalID": "4347992800903168"
+      "grafana.app/deprecatedInternalID": "3459566040236032"
     },
     "annotations": {
       "grafana.app/createdBy": "access-policy:service",
@@ -17,12 +17,12 @@
       "grafana.app/managedBy": "classic-file-provisioning",
       "grafana.app/managerAllowsEdits": "true",
       "grafana.app/managerId": "default",
-      "grafana.app/saved-from-ui": "Grafana v13.0.0 (e9de482b)",
-      "grafana.app/sourceChecksum": "4233b4e88706e95d09766f94879d1a4d",
+      "grafana.app/saved-from-ui": "Grafana v13.0.1 (a100054f)",
+      "grafana.app/sourceChecksum": "505deca5f68c84723b04646c501bb64c",
       "grafana.app/sourcePath": "/etc/grafana/provisioning/dashboards/availability.json",
-      "grafana.app/sourceTimestamp": "1776276638000",
-      "grafana.app/updatedBy": "user:efj6r6l3cdwxsa",
-      "grafana.app/updatedTimestamp": "2026-04-16T08:01:18Z"
+      "grafana.app/sourceTimestamp": "1776362185000",
+      "grafana.app/updatedBy": "user:afibudzz8mjgge",
+      "grafana.app/updatedTimestamp": "2026-04-19T05:13:31Z"
     }
   },
   "spec": {
@@ -87,7 +87,7 @@
           "vizConfig": {
             "kind": "VizConfig",
             "group": "stat",
-            "version": "13.0.0",
+            "version": "13.0.1",
             "spec": {
               "options": {
                 "colorMode": "value",
@@ -188,7 +188,7 @@
           "vizConfig": {
             "kind": "VizConfig",
             "group": "stat",
-            "version": "13.0.0",
+            "version": "13.0.1",
             "spec": {
               "options": {
                 "colorMode": "value",
@@ -289,7 +289,7 @@
           "vizConfig": {
             "kind": "VizConfig",
             "group": "stat",
-            "version": "13.0.0",
+            "version": "13.0.1",
             "spec": {
               "options": {
                 "colorMode": "value",
@@ -390,7 +390,7 @@
           "vizConfig": {
             "kind": "VizConfig",
             "group": "timeseries",
-            "version": "13.0.0",
+            "version": "13.0.1",
             "spec": {
               "options": {
                 "annotations": {
@@ -508,7 +508,7 @@
           "vizConfig": {
             "kind": "VizConfig",
             "group": "timeseries",
-            "version": "13.0.0",
+            "version": "13.0.1",
             "spec": {
               "options": {
                 "annotations": {
@@ -660,7 +660,7 @@
           "vizConfig": {
             "kind": "VizConfig",
             "group": "stat",
-            "version": "13.0.0",
+            "version": "13.0.1",
             "spec": {
               "options": {
                 "colorMode": "value",
@@ -761,7 +761,7 @@
           "vizConfig": {
             "kind": "VizConfig",
             "group": "stat",
-            "version": "13.0.0",
+            "version": "13.0.1",
             "spec": {
               "options": {
                 "colorMode": "value",
@@ -862,7 +862,7 @@
           "vizConfig": {
             "kind": "VizConfig",
             "group": "timeseries",
-            "version": "13.0.0",
+            "version": "13.0.1",
             "spec": {
               "options": {
                 "annotations": {
@@ -989,7 +989,7 @@
           "vizConfig": {
             "kind": "VizConfig",
             "group": "timeseries",
-            "version": "13.0.0",
+            "version": "13.0.1",
             "spec": {
               "options": {
                 "annotations": {
@@ -1107,7 +1107,7 @@
           "vizConfig": {
             "kind": "VizConfig",
             "group": "stat",
-            "version": "13.0.0",
+            "version": "13.0.1",
             "spec": {
               "options": {
                 "colorMode": "value",
@@ -1203,7 +1203,7 @@
           "vizConfig": {
             "kind": "VizConfig",
             "group": "stat",
-            "version": "13.0.0",
+            "version": "13.0.1",
             "spec": {
               "options": {
                 "colorMode": "value",
@@ -1287,7 +1287,7 @@
           "vizConfig": {
             "kind": "VizConfig",
             "group": "stat",
-            "version": "13.0.0",
+            "version": "13.0.1",
             "spec": {
               "options": {
                 "colorMode": "value",
@@ -1371,7 +1371,7 @@
           "vizConfig": {
             "kind": "VizConfig",
             "group": "timeseries",
-            "version": "13.0.0",
+            "version": "13.0.1",
             "spec": {
               "options": {
                 "annotations": {
@@ -1468,28 +1468,7 @@
                       },
                       "spec": {
                         "editorMode": "builder",
-                        "expr": "sum by(service) (increase(finpos_http_requests_total{job=\"backend\", endpoint!=\"/api/v1/metrics\", endpoint!=\"/api/ping\"}[10m]))",
-                        "legendFormat": "{{service}}",
-                        "range": true
-                      }
-                    },
-                    "refId": "A",
-                    "hidden": false
-                  }
-                },
-                {
-                  "kind": "PanelQuery",
-                  "spec": {
-                    "query": {
-                      "kind": "DataQuery",
-                      "group": "prometheus",
-                      "version": "v0",
-                      "datasource": {
-                        "name": "PBFA97CFB590B2093"
-                      },
-                      "spec": {
-                        "editorMode": "builder",
-                        "expr": "sum by(job) (increase(finpos_http_requests_total{job=\"backend\", endpoint!=\"/api/v1/metrics\", endpoint!=\"/api/ping\"}[10m]))",
+                        "expr": "sum by(job) (increase(finpos_http_requests_total{job=\"backend\", endpoint!=\"/api/v1/metrics\", endpoint!=\"/api/ping\"}[1h]))",
                         "instant": false,
                         "legendFormat": "Total",
                         "range": true
@@ -1507,7 +1486,7 @@
           "vizConfig": {
             "kind": "VizConfig",
             "group": "timeseries",
-            "version": "13.0.0",
+            "version": "13.0.1",
             "spec": {
               "options": {
                 "annotations": {
