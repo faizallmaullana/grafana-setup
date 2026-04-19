@@ -5,8 +5,8 @@
     "name": "backend-monitoring",
     "namespace": "default",
     "uid": "e23e9ccd-e692-475d-8ff5-538ed98e642d",
-    "resourceVersion": "1776575611703999",
-    "generation": 82,
+    "resourceVersion": "1776581283338011",
+    "generation": 88,
     "creationTimestamp": "2026-04-13T07:20:45Z",
     "labels": {
       "grafana.app/deprecatedInternalID": "3459566040236032"
@@ -22,7 +22,7 @@
       "grafana.app/sourcePath": "/etc/grafana/provisioning/dashboards/availability.json",
       "grafana.app/sourceTimestamp": "1776362185000",
       "grafana.app/updatedBy": "user:afibudzz8mjgge",
-      "grafana.app/updatedTimestamp": "2026-04-19T05:13:31Z"
+      "grafana.app/updatedTimestamp": "2026-04-19T06:48:03Z"
     }
   },
   "spec": {
@@ -47,427 +47,6 @@
     "cursorSync": "Off",
     "editable": true,
     "elements": {
-      "panel-18": {
-        "kind": "Panel",
-        "spec": {
-          "id": 18,
-          "title": "Err Rate per Day",
-          "description": "",
-          "links": [],
-          "data": {
-            "kind": "QueryGroup",
-            "spec": {
-              "queries": [
-                {
-                  "kind": "PanelQuery",
-                  "spec": {
-                    "query": {
-                      "kind": "DataQuery",
-                      "group": "prometheus",
-                      "version": "v0",
-                      "datasource": {
-                        "name": "PBFA97CFB590B2093"
-                      },
-                      "spec": {
-                        "editorMode": "code",
-                        "expr": "(round(sum by(service) (increase(finpos_http_requests_total{job=\"backend\", status!~\"200\"}[24h])) * 100, 0.1) > 0) / (sum by(service) (increase(finpos_http_requests_total{job=\"backend\", endpoint!~\"/api/ping|/api/v1/metrics\"}[24h])))",
-                        "legendFormat": "__auto",
-                        "range": true
-                      }
-                    },
-                    "refId": "A",
-                    "hidden": false
-                  }
-                }
-              ],
-              "transformations": [],
-              "queryOptions": {}
-            }
-          },
-          "vizConfig": {
-            "kind": "VizConfig",
-            "group": "stat",
-            "version": "13.0.1",
-            "spec": {
-              "options": {
-                "colorMode": "value",
-                "graphMode": "area",
-                "justifyMode": "auto",
-                "orientation": "auto",
-                "percentChangeColorMode": "standard",
-                "reduceOptions": {
-                  "calcs": [
-                    "lastNotNull"
-                  ],
-                  "fields": "",
-                  "values": false
-                },
-                "showPercentChange": false,
-                "textMode": "auto",
-                "wideLayout": true
-              },
-              "fieldConfig": {
-                "defaults": {
-                  "unit": "percent",
-                  "thresholds": {
-                    "mode": "absolute",
-                    "steps": [
-                      {
-                        "value": 0,
-                        "color": "super-light-yellow"
-                      },
-                      {
-                        "value": 0.25,
-                        "color": "yellow"
-                      },
-                      {
-                        "value": 0.5,
-                        "color": "orange"
-                      },
-                      {
-                        "value": 1,
-                        "color": "red"
-                      },
-                      {
-                        "value": 1.5,
-                        "color": "semi-dark-red"
-                      },
-                      {
-                        "value": 2,
-                        "color": "dark-red"
-                      }
-                    ]
-                  },
-                  "color": {
-                    "mode": "thresholds"
-                  }
-                },
-                "overrides": []
-              }
-            }
-          }
-        }
-      },
-      "panel-19": {
-        "kind": "Panel",
-        "spec": {
-          "id": 19,
-          "title": "Err Percent",
-          "description": "",
-          "links": [],
-          "data": {
-            "kind": "QueryGroup",
-            "spec": {
-              "queries": [
-                {
-                  "kind": "PanelQuery",
-                  "spec": {
-                    "query": {
-                      "kind": "DataQuery",
-                      "group": "prometheus",
-                      "version": "v0",
-                      "datasource": {
-                        "name": "PBFA97CFB590B2093"
-                      },
-                      "spec": {
-                        "editorMode": "builder",
-                        "expr": "(round(sum by(endpoint) (increase(finpos_http_requests_total{job=\"backend\", status!~\"200\"}[24h])) * 100, 0.1) > 0) / (sum by(endpoint) (increase(finpos_http_requests_total{job=\"backend\", endpoint!=\"/api/ping\", endpoint!=\"/api/v1/metrics\"}[24h])))",
-                        "legendFormat": "__auto",
-                        "range": true
-                      }
-                    },
-                    "refId": "A",
-                    "hidden": false
-                  }
-                }
-              ],
-              "transformations": [],
-              "queryOptions": {}
-            }
-          },
-          "vizConfig": {
-            "kind": "VizConfig",
-            "group": "stat",
-            "version": "13.0.1",
-            "spec": {
-              "options": {
-                "colorMode": "value",
-                "graphMode": "area",
-                "justifyMode": "auto",
-                "orientation": "auto",
-                "percentChangeColorMode": "standard",
-                "reduceOptions": {
-                  "calcs": [
-                    "lastNotNull"
-                  ],
-                  "fields": "",
-                  "values": false
-                },
-                "showPercentChange": false,
-                "textMode": "auto",
-                "wideLayout": true
-              },
-              "fieldConfig": {
-                "defaults": {
-                  "unit": "percent",
-                  "thresholds": {
-                    "mode": "absolute",
-                    "steps": [
-                      {
-                        "value": 0,
-                        "color": "super-light-yellow"
-                      },
-                      {
-                        "value": 0.25,
-                        "color": "yellow"
-                      },
-                      {
-                        "value": 0.5,
-                        "color": "orange"
-                      },
-                      {
-                        "value": 1,
-                        "color": "red"
-                      },
-                      {
-                        "value": 1.5,
-                        "color": "semi-dark-red"
-                      },
-                      {
-                        "value": 2,
-                        "color": "dark-red"
-                      }
-                    ]
-                  },
-                  "color": {
-                    "mode": "thresholds"
-                  }
-                },
-                "overrides": []
-              }
-            }
-          }
-        }
-      },
-      "panel-20": {
-        "kind": "Panel",
-        "spec": {
-          "id": 20,
-          "title": "Err Percentage",
-          "description": "",
-          "links": [],
-          "data": {
-            "kind": "QueryGroup",
-            "spec": {
-              "queries": [
-                {
-                  "kind": "PanelQuery",
-                  "spec": {
-                    "query": {
-                      "kind": "DataQuery",
-                      "group": "prometheus",
-                      "version": "v0",
-                      "datasource": {
-                        "name": "PBFA97CFB590B2093"
-                      },
-                      "spec": {
-                        "editorMode": "builder",
-                        "expr": "(round(sum by(method) (increase(finpos_http_requests_total{job=\"backend\", status!~\"200\"}[24h])), 0.1) > 0) / (sum by(method) (increase(finpos_http_requests_total{job=\"backend\", endpoint!=\"/api/ping\", endpoint!=\"/api/v1/metrics\"}[24h])))",
-                        "legendFormat": "__auto",
-                        "range": true
-                      }
-                    },
-                    "refId": "A",
-                    "hidden": false
-                  }
-                }
-              ],
-              "transformations": [],
-              "queryOptions": {}
-            }
-          },
-          "vizConfig": {
-            "kind": "VizConfig",
-            "group": "stat",
-            "version": "13.0.1",
-            "spec": {
-              "options": {
-                "colorMode": "value",
-                "graphMode": "area",
-                "justifyMode": "auto",
-                "orientation": "auto",
-                "percentChangeColorMode": "standard",
-                "reduceOptions": {
-                  "calcs": [
-                    "lastNotNull"
-                  ],
-                  "fields": "",
-                  "values": false
-                },
-                "showPercentChange": false,
-                "textMode": "auto",
-                "wideLayout": true
-              },
-              "fieldConfig": {
-                "defaults": {
-                  "unit": "percentunit",
-                  "thresholds": {
-                    "mode": "absolute",
-                    "steps": [
-                      {
-                        "value": 0,
-                        "color": "super-light-yellow"
-                      },
-                      {
-                        "value": 0.025,
-                        "color": "yellow"
-                      },
-                      {
-                        "value": 0.05,
-                        "color": "orange"
-                      },
-                      {
-                        "value": 0.1,
-                        "color": "red"
-                      },
-                      {
-                        "value": 0.15,
-                        "color": "semi-dark-red"
-                      },
-                      {
-                        "value": 0.2,
-                        "color": "dark-red"
-                      }
-                    ]
-                  },
-                  "color": {
-                    "mode": "thresholds"
-                  }
-                },
-                "overrides": []
-              }
-            }
-          }
-        }
-      },
-      "panel-23": {
-        "kind": "Panel",
-        "spec": {
-          "id": 23,
-          "title": "Late Respon Time",
-          "description": "",
-          "links": [],
-          "data": {
-            "kind": "QueryGroup",
-            "spec": {
-              "queries": [
-                {
-                  "kind": "PanelQuery",
-                  "spec": {
-                    "query": {
-                      "kind": "DataQuery",
-                      "group": "prometheus",
-                      "version": "v0",
-                      "datasource": {
-                        "name": "PBFA97CFB590B2093"
-                      },
-                      "spec": {
-                        "editorMode": "builder",
-                        "expr": "sum by(endpoint) (rate(finpos_http_request_duration_seconds_sum{job=\"backend\"}[$__rate_interval])) > 1",
-                        "legendFormat": "__auto",
-                        "range": true
-                      }
-                    },
-                    "refId": "A",
-                    "hidden": false
-                  }
-                }
-              ],
-              "transformations": [],
-              "queryOptions": {}
-            }
-          },
-          "vizConfig": {
-            "kind": "VizConfig",
-            "group": "timeseries",
-            "version": "13.0.1",
-            "spec": {
-              "options": {
-                "annotations": {
-                  "clustering": -1,
-                  "multiLane": false
-                },
-                "legend": {
-                  "calcs": [],
-                  "displayMode": "list",
-                  "placement": "bottom",
-                  "showLegend": true
-                },
-                "tooltip": {
-                  "hideZeros": false,
-                  "mode": "single",
-                  "sort": "none"
-                }
-              },
-              "fieldConfig": {
-                "defaults": {
-                  "thresholds": {
-                    "mode": "absolute",
-                    "steps": [
-                      {
-                        "value": 0,
-                        "color": "green"
-                      },
-                      {
-                        "value": 80,
-                        "color": "red"
-                      }
-                    ]
-                  },
-                  "color": {
-                    "mode": "palette-classic"
-                  },
-                  "custom": {
-                    "axisBorderShow": false,
-                    "axisCenteredZero": false,
-                    "axisColorMode": "text",
-                    "axisLabel": "",
-                    "axisPlacement": "auto",
-                    "barAlignment": 0,
-                    "barWidthFactor": 0.6,
-                    "drawStyle": "line",
-                    "fillOpacity": 25,
-                    "gradientMode": "none",
-                    "hideFrom": {
-                      "legend": false,
-                      "tooltip": false,
-                      "viz": false
-                    },
-                    "insertNulls": false,
-                    "lineInterpolation": "linear",
-                    "lineWidth": 1,
-                    "pointSize": 5,
-                    "scaleDistribution": {
-                      "type": "linear"
-                    },
-                    "showPoints": "auto",
-                    "showValues": false,
-                    "spanNulls": false,
-                    "stacking": {
-                      "group": "A",
-                      "mode": "none"
-                    },
-                    "thresholdsStyle": {
-                      "mode": "off"
-                    }
-                  }
-                },
-                "overrides": []
-              }
-            }
-          }
-        }
-      },
       "panel-24": {
         "kind": "Panel",
         "spec": {
@@ -643,7 +222,7 @@
                       },
                       "spec": {
                         "editorMode": "code",
-                        "expr": "((round(sum by(service) (increase(finpos_http_requests_total{job=\"backend\", status!~\"200\"}[24h])) * 100, 0.1)) / (sum by(service) (increase(finpos_http_requests_total{job=\"backend\", endpoint!~\"/api/ping|/api/v1/metrics\"}[24h])))) > 1",
+                        "expr": "((sum by(service) (rate(finpos_http_requests_total{job=\"backend\", status!~\"200\"}[24h]))) / (sum by(service) (rate(finpos_http_requests_total{job=\"backend\", endpoint!~\"/api/ping|/api/v1/metrics\"}[24h])))) > 0.01",
                         "legendFormat": "__auto",
                         "range": true
                       }
@@ -744,7 +323,7 @@
                       },
                       "spec": {
                         "editorMode": "code",
-                        "expr": "((round(sum by(endpoint) (increase(finpos_http_requests_total{job=\"backend\", status!~\"200\"}[24h])) * 100, 0.1)) / (sum by(endpoint) (increase(finpos_http_requests_total{job=\"backend\", endpoint!~\"/api/ping|/api/v1/metrics\"}[24h])))) > 1",
+                        "expr": "(sum by(endpoint) (\n  rate(finpos_http_requests_total{job=\"backend\", status=\"200\", endpoint!~\"/api/ping|/api/v1/metrics\"}[24h])\n) \n/ \nsum by(endpoint) (\n  rate(finpos_http_requests_total{job=\"backend\", endpoint!~\"/api/ping|/api/v1/metrics\"}[24h])\n)) > 0.01",
                         "legendFormat": "__auto",
                         "range": true
                       }
@@ -782,7 +361,7 @@
               },
               "fieldConfig": {
                 "defaults": {
-                  "unit": "percent",
+                  "unit": "percentunit",
                   "thresholds": {
                     "mode": "absolute",
                     "steps": [
@@ -902,124 +481,6 @@
                       {
                         "value": 97.5,
                         "color": "green"
-                      }
-                    ]
-                  },
-                  "color": {
-                    "mode": "palette-classic"
-                  },
-                  "custom": {
-                    "axisBorderShow": false,
-                    "axisCenteredZero": false,
-                    "axisColorMode": "text",
-                    "axisLabel": "",
-                    "axisPlacement": "auto",
-                    "barAlignment": 0,
-                    "barWidthFactor": 0.6,
-                    "drawStyle": "line",
-                    "fillOpacity": 0,
-                    "gradientMode": "none",
-                    "hideFrom": {
-                      "legend": false,
-                      "tooltip": false,
-                      "viz": false
-                    },
-                    "insertNulls": false,
-                    "lineInterpolation": "linear",
-                    "lineWidth": 1,
-                    "pointSize": 5,
-                    "scaleDistribution": {
-                      "type": "linear"
-                    },
-                    "showPoints": "auto",
-                    "showValues": false,
-                    "spanNulls": false,
-                    "stacking": {
-                      "group": "A",
-                      "mode": "none"
-                    },
-                    "thresholdsStyle": {
-                      "mode": "off"
-                    }
-                  }
-                },
-                "overrides": []
-              }
-            }
-          }
-        }
-      },
-      "panel-29": {
-        "kind": "Panel",
-        "spec": {
-          "id": 29,
-          "title": "Error Rate",
-          "description": "",
-          "links": [],
-          "data": {
-            "kind": "QueryGroup",
-            "spec": {
-              "queries": [
-                {
-                  "kind": "PanelQuery",
-                  "spec": {
-                    "query": {
-                      "kind": "DataQuery",
-                      "group": "prometheus",
-                      "version": "v0",
-                      "datasource": {
-                        "name": "PBFA97CFB590B2093"
-                      },
-                      "spec": {
-                        "editorMode": "builder",
-                        "expr": "(sum by(endpoint, method) (increase(finpos_http_requests_total{status!~\"2.*\", endpoint=~\"/api/v1/sales-invoice.*|/api/v1/sales-order.*|/api/v1/sales-payment.*|/api/v1/sales-quotation.*|/api/v1/sales-return.*\"}[5m]) * 100)) / (sum by(endpoint, method) (increase(finpos_http_requests_total{endpoint=~\"/api/v1/sales-invoice.*|/api/v1/sales-order.*|/api/v1/sales-payment.*|/api/v1/sales-quotation.*|/api/v1/sales-return.*\"}[5m])))",
-                        "legendFormat": "{{method}} {{endpoint}}",
-                        "range": true
-                      }
-                    },
-                    "refId": "A",
-                    "hidden": false
-                  }
-                }
-              ],
-              "transformations": [],
-              "queryOptions": {}
-            }
-          },
-          "vizConfig": {
-            "kind": "VizConfig",
-            "group": "timeseries",
-            "version": "13.0.1",
-            "spec": {
-              "options": {
-                "annotations": {
-                  "clustering": -1,
-                  "multiLane": false
-                },
-                "legend": {
-                  "calcs": [],
-                  "displayMode": "list",
-                  "placement": "bottom",
-                  "showLegend": true
-                },
-                "tooltip": {
-                  "hideZeros": false,
-                  "mode": "single",
-                  "sort": "none"
-                }
-              },
-              "fieldConfig": {
-                "defaults": {
-                  "thresholds": {
-                    "mode": "absolute",
-                    "steps": [
-                      {
-                        "value": 0,
-                        "color": "green"
-                      },
-                      {
-                        "value": 80,
-                        "color": "red"
                       }
                     ]
                   },
@@ -1445,6 +906,134 @@
           }
         }
       },
+      "panel-36": {
+        "kind": "Panel",
+        "spec": {
+          "id": 36,
+          "title": "MB rate",
+          "description": "",
+          "links": [],
+          "data": {
+            "kind": "QueryGroup",
+            "spec": {
+              "queries": [
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "query": {
+                      "kind": "DataQuery",
+                      "group": "prometheus",
+                      "version": "v0",
+                      "datasource": {
+                        "name": "PBFA97CFB590B2093"
+                      },
+                      "spec": {
+                        "editorMode": "builder",
+                        "expr": "sum by(service) (rate(finpos_http_requests_total{service=\"MB Furnistore\", status=\"200\"}[10m]))",
+                        "legendFormat": "__auto",
+                        "range": true
+                      }
+                    },
+                    "refId": "A",
+                    "hidden": false
+                  }
+                },
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "query": {
+                      "kind": "DataQuery",
+                      "group": "prometheus",
+                      "version": "v0",
+                      "datasource": {
+                        "name": "PBFA97CFB590B2093"
+                      },
+                      "spec": {
+                        "editorMode": "builder",
+                        "expr": "(\n  sum by(service) (rate(finpos_http_requests_total{service=\"MB Furnistore\", status=\"200\"}[10m])) \n  / \n  sum by(service) (rate(finpos_http_requests_total{service=\"MB Furnistore\"}[10m]))\n) * 100",
+                        "instant": false,
+                        "legendFormat": "__auto",
+                        "range": true
+                      }
+                    },
+                    "refId": "B",
+                    "hidden": false
+                  }
+                },
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "query": {
+                      "kind": "DataQuery",
+                      "group": "prometheus",
+                      "version": "v0",
+                      "datasource": {
+                        "name": "PBFA97CFB590B2093"
+                      },
+                      "spec": {
+                        "editorMode": "builder",
+                        "expr": "(\n  sum by(service) (increase(finpos_http_requests_total{service=\"MB Furnistore\", status=\"200\"}[10m]))\n  /\n  sum by(service) (increase(finpos_http_requests_total{service=\"MB Furnistore\"}[10m]))\n) * 100",
+                        "instant": false,
+                        "legendFormat": "__auto",
+                        "range": true
+                      }
+                    },
+                    "refId": "C",
+                    "hidden": false
+                  }
+                }
+              ],
+              "transformations": [],
+              "queryOptions": {}
+            }
+          },
+          "vizConfig": {
+            "kind": "VizConfig",
+            "group": "stat",
+            "version": "13.0.1",
+            "spec": {
+              "options": {
+                "colorMode": "value",
+                "graphMode": "area",
+                "justifyMode": "auto",
+                "orientation": "auto",
+                "percentChangeColorMode": "standard",
+                "reduceOptions": {
+                  "calcs": [
+                    "lastNotNull"
+                  ],
+                  "fields": "",
+                  "values": false
+                },
+                "showPercentChange": false,
+                "textMode": "auto",
+                "wideLayout": true
+              },
+              "fieldConfig": {
+                "defaults": {
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "value": 0,
+                        "color": "green"
+                      },
+                      {
+                        "value": 80,
+                        "color": "red"
+                      }
+                    ]
+                  },
+                  "color": {
+                    "mode": "thresholds"
+                  }
+                },
+                "overrides": []
+              }
+            }
+          }
+        }
+      },
       "panel-4": {
         "kind": "Panel",
         "spec": {
@@ -1665,98 +1254,6 @@
                           }
                         }
                       }
-                    },
-                    {
-                      "kind": "RowsLayoutRow",
-                      "spec": {
-                        "title": "Error Overview",
-                        "collapse": false,
-                        "layout": {
-                          "kind": "GridLayout",
-                          "spec": {
-                            "items": [
-                              {
-                                "kind": "GridLayoutItem",
-                                "spec": {
-                                  "x": 0,
-                                  "y": 0,
-                                  "width": 6,
-                                  "height": 10,
-                                  "element": {
-                                    "kind": "ElementReference",
-                                    "name": "panel-20"
-                                  }
-                                }
-                              },
-                              {
-                                "kind": "GridLayoutItem",
-                                "spec": {
-                                  "x": 6,
-                                  "y": 0,
-                                  "width": 18,
-                                  "height": 10,
-                                  "element": {
-                                    "kind": "ElementReference",
-                                    "name": "panel-18"
-                                  }
-                                }
-                              },
-                              {
-                                "kind": "GridLayoutItem",
-                                "spec": {
-                                  "x": 0,
-                                  "y": 10,
-                                  "width": 24,
-                                  "height": 8,
-                                  "element": {
-                                    "kind": "ElementReference",
-                                    "name": "panel-19"
-                                  }
-                                }
-                              },
-                              {
-                                "kind": "GridLayoutItem",
-                                "spec": {
-                                  "x": 0,
-                                  "y": 18,
-                                  "width": 24,
-                                  "height": 8,
-                                  "element": {
-                                    "kind": "ElementReference",
-                                    "name": "panel-29"
-                                  }
-                                }
-                              }
-                            ]
-                          }
-                        }
-                      }
-                    },
-                    {
-                      "kind": "RowsLayoutRow",
-                      "spec": {
-                        "title": "Respon Time",
-                        "collapse": false,
-                        "layout": {
-                          "kind": "AutoGridLayout",
-                          "spec": {
-                            "maxColumnCount": 3,
-                            "columnWidthMode": "standard",
-                            "rowHeightMode": "standard",
-                            "items": [
-                              {
-                                "kind": "AutoGridLayoutItem",
-                                "spec": {
-                                  "element": {
-                                    "kind": "ElementReference",
-                                    "name": "panel-23"
-                                  }
-                                }
-                              }
-                            ]
-                          }
-                        }
-                      }
                     }
                   ]
                 }
@@ -1854,6 +1351,15 @@
                         "element": {
                           "kind": "ElementReference",
                           "name": "panel-32"
+                        }
+                      }
+                    },
+                    {
+                      "kind": "AutoGridLayoutItem",
+                      "spec": {
+                        "element": {
+                          "kind": "ElementReference",
+                          "name": "panel-36"
                         }
                       }
                     }
