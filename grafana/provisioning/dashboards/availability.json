@@ -5,8 +5,8 @@
     "name": "backend-monitoring",
     "namespace": "default",
     "uid": "e23e9ccd-e692-475d-8ff5-538ed98e642d",
-    "resourceVersion": "1776585037692985",
-    "generation": 108,
+    "resourceVersion": "1776586641122992",
+    "generation": 109,
     "creationTimestamp": "2026-04-13T07:20:45Z",
     "labels": {
       "grafana.app/deprecatedInternalID": "3459566040236032"
@@ -22,7 +22,7 @@
       "grafana.app/sourcePath": "/etc/grafana/provisioning/dashboards/availability.json",
       "grafana.app/sourceTimestamp": "1776362185000",
       "grafana.app/updatedBy": "user:afibudzz8mjgge",
-      "grafana.app/updatedTimestamp": "2026-04-19T07:50:37Z"
+      "grafana.app/updatedTimestamp": "2026-04-19T08:17:21Z"
     }
   },
   "spec": {
@@ -897,7 +897,7 @@
                       "spec": {
                         "editorMode": "builder",
                         "expr": "sum by(endpoint, method) (rate(finpos_http_requests_total{job=\"backend\", endpoint=~\".*sales-quotation.*\"}[10m]))",
-                        "legendFormat": "{{method}} {{service}}",
+                        "legendFormat": "{{method}} {{endpoint}}",
                         "range": true
                       }
                     },
@@ -1741,8 +1741,8 @@
                       },
                       "spec": {
                         "editorMode": "builder",
-                        "expr": "sum by(endpoint, method, service) (rate(finpos_http_requests_total{job=\"backend\", endpoint=~\".*sales-invoice.*\", status!~\"2.*\"}[10m]))",
-                        "legendFormat": "{{service}} - {{method}} {{endpoint}}",
+                        "expr": "sum by(endpoint, method, service, status) (rate(finpos_http_requests_total{job=\"backend\", endpoint=~\".*sales-invoice.*\", status!~\"2.*\"}[10m]))",
+                        "legendFormat": "{{service}} - {{status}} {{method}} {{endpoint}}",
                         "range": true
                       }
                     },
@@ -1859,8 +1859,8 @@
                       },
                       "spec": {
                         "editorMode": "builder",
-                        "expr": "sum by(endpoint, mehtod, service) (rate(finpos_http_requests_total{job=\"backend\", endpoint=~\".*sales-quotation.*\", status!~\"2.*\"}[10m]))",
-                        "legendFormat": "{{service}} - {{method}} {{endpoint}}",
+                        "expr": "sum by(endpoint, mehtod, service, status) (rate(finpos_http_requests_total{job=\"backend\", endpoint=~\".*sales-quotation.*\", status!~\"2.*\"}[10m]))",
+                        "legendFormat": "{{service}} - {{status}} {{method}} {{endpoint}}",
                         "range": true
                       }
                     },
@@ -1977,8 +1977,8 @@
                       },
                       "spec": {
                         "editorMode": "builder",
-                        "expr": "sum by(endpoint, service, method) (rate(finpos_http_requests_total{job=\"backend\", endpoint=~\".*sales-order.*\", status!~\"2.*\"}[10m]))",
-                        "legendFormat": "{{service}} - {{method}} {{endpoint}}",
+                        "expr": "sum by(endpoint, service, method, status) (rate(finpos_http_requests_total{job=\"backend\", endpoint=~\".*sales-order.*\", status!~\"2.*\"}[10m]))",
+                        "legendFormat": "{{service}} - {{status}} {{method}} {{endpoint}}",
                         "range": true
                       }
                     },
@@ -2095,8 +2095,8 @@
                       },
                       "spec": {
                         "editorMode": "builder",
-                        "expr": "sum by(endpoint, method, service) (rate(finpos_http_requests_total{job=\"backend\", endpoint=~\".*delivery-order.*\", status!~\"2.*\"}[10m]))",
-                        "legendFormat": "{{service}} - {{method}} {{endpoint}}",
+                        "expr": "sum by(endpoint, method, service, status) (rate(finpos_http_requests_total{job=\"backend\", endpoint=~\".*delivery-order.*\", status!~\"2.*\"}[10m]))",
+                        "legendFormat": "{{service}} - {{status}} {{method}} {{endpoint}}",
                         "range": true
                       }
                     },
@@ -2213,8 +2213,8 @@
                       },
                       "spec": {
                         "editorMode": "builder",
-                        "expr": "sum by(endpoint, method, service) (rate(finpos_http_requests_total{job=\"backend\", endpoint=~\".*sales-advance.*\", status!~\"2.*\"}[10m]))",
-                        "legendFormat": "{{service}} - {{method}} {{endpoint}}",
+                        "expr": "sum by(endpoint, method, service, status) (rate(finpos_http_requests_total{job=\"backend\", endpoint=~\".*sales-advance.*\", status!~\"2.*\"}[10m]))",
+                        "legendFormat": "{{service}} - {{status}} {{method}} {{endpoint}}",
                         "range": true
                       }
                     },
@@ -2331,8 +2331,8 @@
                       },
                       "spec": {
                         "editorMode": "builder",
-                        "expr": "sum by(endpoint, service, method) (rate(finpos_http_requests_total{job=\"backend\", endpoint=~\".*sales-payment.*\", status!~\"2.*\"}[10m]))",
-                        "legendFormat": "{{service}} - {{method}} {{endpoint}}",
+                        "expr": "sum by(endpoint, service, method, status) (rate(finpos_http_requests_total{job=\"backend\", endpoint=~\".*sales-payment.*\", status!~\"2.*\"}[10m]))",
+                        "legendFormat": "{{service}} - {{status}} {{method}} {{endpoint}}",
                         "range": true
                       }
                     },
@@ -2449,8 +2449,8 @@
                       },
                       "spec": {
                         "editorMode": "builder",
-                        "expr": "sum by(endpoint, method, service) (rate(finpos_http_requests_total{job=\"backend\", endpoint=~\".*sales-return.*\", status!~\"2.*\"}[10m]))",
-                        "legendFormat": "{{service}} - {{method}} {{endpoint}}",
+                        "expr": "sum by(endpoint, method, service, status) (rate(finpos_http_requests_total{job=\"backend\", endpoint=~\".*sales-return.*\", status!~\"2.*\"}[10m]))",
+                        "legendFormat": "{{service}} - {{status}} {{method}} {{endpoint}}",
                         "range": true
                       }
                     },
