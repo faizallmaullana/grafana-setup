@@ -28,10 +28,15 @@ scrape_configs:
       #   labels:
       #     service: 'Localhost'
       #     env: 'prod'
-      - targets:
-          - 'testlive.kelolaaja.id'
-        labels:
-          service: 'Test Live'
+      # - targets:
+      #     - 'testlive.kelolaaja.id'
+      #   labels:
+      #     service: 'Test Live'
+      # - targets:
+      #     - 'app.demo.kelolaaja.id'
+      #   labels:
+      #     service: 'App Demo'
+      #     env: 'prod'
       - targets:
           - 'sriendo.kelolaaja.id'
         labels:
@@ -44,11 +49,6 @@ scrape_configs:
           - 'karyaabadi.kelolaaja.id'
         labels:
           service: 'Karya Abadi Sejahtera'
-      # - targets:
-      #     - 'app.demo.kelolaaja.id'
-      #   labels:
-      #     service: 'App Demo'
-      #     env: 'prod'
       - targets:
           - 'mbfurnistore.kelolaaja.id'
         labels:
