@@ -5,8 +5,8 @@
     "name": "backend-monitoring",
     "namespace": "default",
     "uid": "e23e9ccd-e692-475d-8ff5-538ed98e642d",
-    "resourceVersion": "1776757091164988",
-    "generation": 130,
+    "resourceVersion": "1776760266156014",
+    "generation": 145,
     "creationTimestamp": "2026-04-13T07:20:45Z",
     "labels": {
       "grafana.app/deprecatedInternalID": "3459566040236032"
@@ -18,11 +18,11 @@
       "grafana.app/managerAllowsEdits": "true",
       "grafana.app/managerId": "default",
       "grafana.app/saved-from-ui": "Grafana v13.0.1 (a100054f)",
-      "grafana.app/sourceChecksum": "c50d1c0d6cf3566c3544c32adb60111d",
+      "grafana.app/sourceChecksum": "7ab117f8c63df84f999bf4b36f12e549",
       "grafana.app/sourcePath": "/etc/grafana/provisioning/dashboards/availability.json",
-      "grafana.app/sourceTimestamp": "1776756883000",
+      "grafana.app/sourceTimestamp": "1776757110000",
       "grafana.app/updatedBy": "user:afibudzz8mjgge",
-      "grafana.app/updatedTimestamp": "2026-04-21T07:38:11Z"
+      "grafana.app/updatedTimestamp": "2026-04-21T08:31:06Z"
     }
   },
   "spec": {
@@ -345,174 +345,6 @@
           }
         }
       },
-      "panel-30": {
-        "kind": "Panel",
-        "spec": {
-          "id": 30,
-          "title": "dialy request",
-          "description": "",
-          "links": [],
-          "data": {
-            "kind": "QueryGroup",
-            "spec": {
-              "queries": [
-                {
-                  "kind": "PanelQuery",
-                  "spec": {
-                    "query": {
-                      "kind": "DataQuery",
-                      "group": "prometheus",
-                      "version": "v0",
-                      "datasource": {
-                        "name": "PBFA97CFB590B2093"
-                      },
-                      "spec": {
-                        "editorMode": "builder",
-                        "expr": "sum by(service) (increase(finpos_http_requests_total{job=\"backend\", endpoint!~\"/api/v1/metrics|/api/ping\"}[24h]))",
-                        "legendFormat": "__auto",
-                        "range": true
-                      }
-                    },
-                    "refId": "A",
-                    "hidden": false
-                  }
-                }
-              ],
-              "transformations": [],
-              "queryOptions": {}
-            }
-          },
-          "vizConfig": {
-            "kind": "VizConfig",
-            "group": "stat",
-            "version": "13.0.1",
-            "spec": {
-              "options": {
-                "colorMode": "value",
-                "graphMode": "area",
-                "justifyMode": "auto",
-                "orientation": "auto",
-                "percentChangeColorMode": "standard",
-                "reduceOptions": {
-                  "calcs": [
-                    "lastNotNull"
-                  ],
-                  "fields": "",
-                  "values": false
-                },
-                "showPercentChange": false,
-                "textMode": "auto",
-                "wideLayout": true
-              },
-              "fieldConfig": {
-                "defaults": {
-                  "thresholds": {
-                    "mode": "absolute",
-                    "steps": [
-                      {
-                        "value": 0,
-                        "color": "green"
-                      },
-                      {
-                        "value": 80,
-                        "color": "red"
-                      }
-                    ]
-                  },
-                  "color": {
-                    "mode": "thresholds"
-                  }
-                },
-                "overrides": []
-              }
-            }
-          }
-        }
-      },
-      "panel-32": {
-        "kind": "Panel",
-        "spec": {
-          "id": 32,
-          "title": "dialy error",
-          "description": "",
-          "links": [],
-          "data": {
-            "kind": "QueryGroup",
-            "spec": {
-              "queries": [
-                {
-                  "kind": "PanelQuery",
-                  "spec": {
-                    "query": {
-                      "kind": "DataQuery",
-                      "group": "prometheus",
-                      "version": "v0",
-                      "datasource": {
-                        "name": "PBFA97CFB590B2093"
-                      },
-                      "spec": {
-                        "editorMode": "builder",
-                        "expr": "sum by(service) (increase(finpos_http_requests_total{job=\"backend\", status!~\"200\"}[24h]))",
-                        "legendFormat": "__auto",
-                        "range": true
-                      }
-                    },
-                    "refId": "A",
-                    "hidden": false
-                  }
-                }
-              ],
-              "transformations": [],
-              "queryOptions": {}
-            }
-          },
-          "vizConfig": {
-            "kind": "VizConfig",
-            "group": "stat",
-            "version": "13.0.1",
-            "spec": {
-              "options": {
-                "colorMode": "value",
-                "graphMode": "area",
-                "justifyMode": "auto",
-                "orientation": "auto",
-                "percentChangeColorMode": "standard",
-                "reduceOptions": {
-                  "calcs": [
-                    "lastNotNull"
-                  ],
-                  "fields": "",
-                  "values": false
-                },
-                "showPercentChange": false,
-                "textMode": "auto",
-                "wideLayout": true
-              },
-              "fieldConfig": {
-                "defaults": {
-                  "thresholds": {
-                    "mode": "absolute",
-                    "steps": [
-                      {
-                        "value": 0,
-                        "color": "green"
-                      },
-                      {
-                        "value": 80,
-                        "color": "red"
-                      }
-                    ]
-                  },
-                  "color": {
-                    "mode": "thresholds"
-                  }
-                },
-                "overrides": []
-              }
-            }
-          }
-        }
-      },
       "panel-34": {
         "kind": "Panel",
         "spec": {
@@ -619,134 +451,6 @@
                     "thresholdsStyle": {
                       "mode": "off"
                     }
-                  }
-                },
-                "overrides": []
-              }
-            }
-          }
-        }
-      },
-      "panel-36": {
-        "kind": "Panel",
-        "spec": {
-          "id": 36,
-          "title": "MB rate",
-          "description": "",
-          "links": [],
-          "data": {
-            "kind": "QueryGroup",
-            "spec": {
-              "queries": [
-                {
-                  "kind": "PanelQuery",
-                  "spec": {
-                    "query": {
-                      "kind": "DataQuery",
-                      "group": "prometheus",
-                      "version": "v0",
-                      "datasource": {
-                        "name": "PBFA97CFB590B2093"
-                      },
-                      "spec": {
-                        "editorMode": "builder",
-                        "expr": "sum by(service) (rate(finpos_http_requests_total{service=\"MB Furnistore\", status=\"200\"}[10m]))",
-                        "legendFormat": "__auto",
-                        "range": true
-                      }
-                    },
-                    "refId": "A",
-                    "hidden": false
-                  }
-                },
-                {
-                  "kind": "PanelQuery",
-                  "spec": {
-                    "query": {
-                      "kind": "DataQuery",
-                      "group": "prometheus",
-                      "version": "v0",
-                      "datasource": {
-                        "name": "PBFA97CFB590B2093"
-                      },
-                      "spec": {
-                        "editorMode": "builder",
-                        "expr": "(\n  sum by(service) (rate(finpos_http_requests_total{service=\"MB Furnistore\", status=\"200\"}[10m])) \n  / \n  sum by(service) (rate(finpos_http_requests_total{service=\"MB Furnistore\"}[10m]))\n) * 100",
-                        "instant": false,
-                        "legendFormat": "__auto",
-                        "range": true
-                      }
-                    },
-                    "refId": "B",
-                    "hidden": false
-                  }
-                },
-                {
-                  "kind": "PanelQuery",
-                  "spec": {
-                    "query": {
-                      "kind": "DataQuery",
-                      "group": "prometheus",
-                      "version": "v0",
-                      "datasource": {
-                        "name": "PBFA97CFB590B2093"
-                      },
-                      "spec": {
-                        "editorMode": "builder",
-                        "expr": "(\n  sum by(service) (increase(finpos_http_requests_total{service=\"MB Furnistore\", status=\"200\"}[10m]))\n  /\n  sum by(service) (increase(finpos_http_requests_total{service=\"MB Furnistore\"}[10m]))\n) * 100",
-                        "instant": false,
-                        "legendFormat": "__auto",
-                        "range": true
-                      }
-                    },
-                    "refId": "C",
-                    "hidden": false
-                  }
-                }
-              ],
-              "transformations": [],
-              "queryOptions": {}
-            }
-          },
-          "vizConfig": {
-            "kind": "VizConfig",
-            "group": "stat",
-            "version": "13.0.1",
-            "spec": {
-              "options": {
-                "colorMode": "value",
-                "graphMode": "area",
-                "justifyMode": "auto",
-                "orientation": "auto",
-                "percentChangeColorMode": "standard",
-                "reduceOptions": {
-                  "calcs": [
-                    "lastNotNull"
-                  ],
-                  "fields": "",
-                  "values": false
-                },
-                "showPercentChange": false,
-                "textMode": "auto",
-                "wideLayout": true
-              },
-              "fieldConfig": {
-                "defaults": {
-                  "thresholds": {
-                    "mode": "absolute",
-                    "steps": [
-                      {
-                        "value": 0,
-                        "color": "green"
-                      },
-                      {
-                        "value": 80,
-                        "color": "red"
-                      }
-                    ]
-                  },
-                  "color": {
-                    "mode": "thresholds"
                   }
                 },
                 "overrides": []
@@ -1741,7 +1445,7 @@
                       },
                       "spec": {
                         "editorMode": "builder",
-                        "expr": "sum by(endpoint, method, service, status) (increase(finpos_http_requests_total{job=\"backend\", endpoint=~\".*sales-invoice.*\", status!~\"2.*\"}[10m]))",
+                        "expr": "sum by(endpoint, method, service, status) (increase(finpos_http_requests_total{job=\"backend\", endpoint=~\".*sales-invoice.*\", status!~\"2.*\"}[10m])) > 0",
                         "legendFormat": "{{service}} - {{status}} {{method}} {{endpoint}}",
                         "range": true
                       }
@@ -1859,7 +1563,7 @@
                       },
                       "spec": {
                         "editorMode": "builder",
-                        "expr": "sum by(endpoint, mehtod, service, status) (increase(finpos_http_requests_total{job=\"backend\", endpoint=~\".*sales-quotation.*\", status!~\"2.*\"}[10m]))",
+                        "expr": "sum by(endpoint, mehtod, service, status) (increase(finpos_http_requests_total{job=\"backend\", endpoint=~\".*sales-quotation.*\", status!~\"2.*\"}[10m])) > 0",
                         "legendFormat": "{{service}} - {{status}} {{method}} {{endpoint}}",
                         "range": true
                       }
@@ -1977,7 +1681,7 @@
                       },
                       "spec": {
                         "editorMode": "builder",
-                        "expr": "sum by(endpoint, service, method, status) (increase(finpos_http_requests_total{job=\"backend\", endpoint=~\".*sales-order.*\", status!~\"2.*\"}[10m]))",
+                        "expr": "sum by(endpoint, service, method, status) (increase(finpos_http_requests_total{job=\"backend\", endpoint=~\".*sales-order.*\", status!~\"2.*\"}[10m])) > 0",
                         "legendFormat": "{{service}} - {{status}} {{method}} {{endpoint}}",
                         "range": true
                       }
@@ -2095,7 +1799,7 @@
                       },
                       "spec": {
                         "editorMode": "builder",
-                        "expr": "sum by(endpoint, method, service, status) (increase(finpos_http_requests_total{job=\"backend\", endpoint=~\".*delivery-order.*\", status!~\"2.*\"}[10m]))",
+                        "expr": "sum by(endpoint, method, service, status) (increase(finpos_http_requests_total{job=\"backend\", endpoint=~\".*delivery-order.*\", status!~\"2.*\"}[10m])) > 0",
                         "legendFormat": "{{service}} - {{status}} {{method}} {{endpoint}}",
                         "range": true
                       }
@@ -2213,7 +1917,7 @@
                       },
                       "spec": {
                         "editorMode": "builder",
-                        "expr": "sum by(endpoint, method, service, status) (increase(finpos_http_requests_total{job=\"backend\", endpoint=~\".*sales-advance.*\", status!~\"2.*\"}[10m]))",
+                        "expr": "sum by(endpoint, method, service, status) (increase(finpos_http_requests_total{job=\"backend\", endpoint=~\".*sales-advance.*\", status!~\"2.*\"}[10m])) > 0",
                         "legendFormat": "{{service}} - {{status}} {{method}} {{endpoint}}",
                         "range": true
                       }
@@ -2331,7 +2035,7 @@
                       },
                       "spec": {
                         "editorMode": "builder",
-                        "expr": "sum by(endpoint, service, method, status) (rate(finpos_http_requests_total{job=\"backend\", endpoint=~\".*sales-payment.*\", status!~\"2.*\"}[10m]))",
+                        "expr": "sum by(endpoint, service, method, status) (rate(finpos_http_requests_total{job=\"backend\", endpoint=~\".*sales-payment.*\", status!~\"2.*\"}[10m])) > 0",
                         "legendFormat": "{{service}} - {{status}} {{method}} {{endpoint}}",
                         "range": true
                       }
@@ -2449,7 +2153,7 @@
                       },
                       "spec": {
                         "editorMode": "builder",
-                        "expr": "sum by(endpoint, method, service, status) (increase(finpos_http_requests_total{job=\"backend\", endpoint=~\".*sales-return.*\", status!~\"2.*\"}[10m]))",
+                        "expr": "sum by(endpoint, method, service, status) (increase(finpos_http_requests_total{job=\"backend\", endpoint=~\".*sales-return.*\", status!~\"2.*\"}[10m])) > 0",
                         "legendFormat": "{{service}} - {{status}} {{method}} {{endpoint}}",
                         "range": true
                       }
@@ -3799,6 +3503,1182 @@
             }
           }
         }
+      },
+      "panel-64": {
+        "kind": "Panel",
+        "spec": {
+          "id": 64,
+          "title": "Request Overview",
+          "description": "",
+          "links": [],
+          "data": {
+            "kind": "QueryGroup",
+            "spec": {
+              "queries": [
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "query": {
+                      "kind": "DataQuery",
+                      "group": "prometheus",
+                      "version": "v0",
+                      "datasource": {
+                        "name": "PBFA97CFB590B2093"
+                      },
+                      "spec": {
+                        "editorMode": "builder",
+                        "expr": "sum by(endpoint) (increase(finpos_http_requests_total{job=\"backend\", endpoint!=\"/api/v1/metrics\", endpoint!=\"/api/ping\"}[10m])) > 0",
+                        "legendFormat": "{{service}}",
+                        "range": true
+                      }
+                    },
+                    "refId": "A",
+                    "hidden": false
+                  }
+                }
+              ],
+              "transformations": [],
+              "queryOptions": {}
+            }
+          },
+          "vizConfig": {
+            "kind": "VizConfig",
+            "group": "timeseries",
+            "version": "13.0.1",
+            "spec": {
+              "options": {
+                "annotations": {
+                  "clustering": -1,
+                  "multiLane": false
+                },
+                "legend": {
+                  "calcs": [],
+                  "displayMode": "list",
+                  "placement": "bottom",
+                  "showLegend": true
+                },
+                "tooltip": {
+                  "hideZeros": false,
+                  "mode": "single",
+                  "sort": "none"
+                }
+              },
+              "fieldConfig": {
+                "defaults": {
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "value": 0,
+                        "color": "green"
+                      }
+                    ]
+                  },
+                  "color": {
+                    "mode": "palette-classic"
+                  },
+                  "custom": {
+                    "axisBorderShow": false,
+                    "axisCenteredZero": false,
+                    "axisColorMode": "text",
+                    "axisLabel": "",
+                    "axisPlacement": "auto",
+                    "barAlignment": 0,
+                    "barWidthFactor": 0.6,
+                    "drawStyle": "line",
+                    "fillOpacity": 5,
+                    "gradientMode": "none",
+                    "hideFrom": {
+                      "legend": false,
+                      "tooltip": false,
+                      "viz": false
+                    },
+                    "insertNulls": false,
+                    "lineInterpolation": "smooth",
+                    "lineWidth": 1,
+                    "pointSize": 5,
+                    "scaleDistribution": {
+                      "type": "linear"
+                    },
+                    "showPoints": "auto",
+                    "showValues": false,
+                    "spanNulls": false,
+                    "stacking": {
+                      "group": "A",
+                      "mode": "none"
+                    },
+                    "thresholdsStyle": {
+                      "mode": "off"
+                    }
+                  }
+                },
+                "overrides": []
+              }
+            }
+          }
+        }
+      },
+      "panel-65": {
+        "kind": "Panel",
+        "spec": {
+          "id": 65,
+          "title": "Respon Time",
+          "description": "",
+          "links": [],
+          "data": {
+            "kind": "QueryGroup",
+            "spec": {
+              "queries": [
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "query": {
+                      "kind": "DataQuery",
+                      "group": "prometheus",
+                      "version": "v0",
+                      "datasource": {
+                        "name": "PBFA97CFB590B2093"
+                      },
+                      "spec": {
+                        "editorMode": "builder",
+                        "expr": "sum by(endpoint) (rate(finpos_http_request_duration_seconds_sum{job=\"backend\", endpoint=~\"/api/v1/item|/api/v1/items|/api/v1/item/.*|/api/v1/items/.*\"}[10m])) / (sum by(endpoint) (rate(finpos_http_request_duration_seconds_count{job=\"backend\", endpoint=~\"/api/v1/item|/api/v1/items|/api/v1/item/.*|/api/v1/items/.*\"}[10m])))",
+                        "legendFormat": "__auto",
+                        "range": true
+                      }
+                    },
+                    "refId": "A",
+                    "hidden": false
+                  }
+                }
+              ],
+              "transformations": [],
+              "queryOptions": {}
+            }
+          },
+          "vizConfig": {
+            "kind": "VizConfig",
+            "group": "timeseries",
+            "version": "13.0.1",
+            "spec": {
+              "options": {
+                "annotations": {
+                  "clustering": -1,
+                  "multiLane": false
+                },
+                "legend": {
+                  "calcs": [],
+                  "displayMode": "list",
+                  "placement": "bottom",
+                  "showLegend": true
+                },
+                "tooltip": {
+                  "hideZeros": false,
+                  "mode": "single",
+                  "sort": "none"
+                }
+              },
+              "fieldConfig": {
+                "defaults": {
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "value": 0,
+                        "color": "green"
+                      },
+                      {
+                        "value": 80,
+                        "color": "red"
+                      }
+                    ]
+                  },
+                  "color": {
+                    "mode": "palette-classic"
+                  },
+                  "custom": {
+                    "axisBorderShow": false,
+                    "axisCenteredZero": false,
+                    "axisColorMode": "text",
+                    "axisLabel": "",
+                    "axisPlacement": "auto",
+                    "barAlignment": 0,
+                    "barWidthFactor": 0.6,
+                    "drawStyle": "line",
+                    "fillOpacity": 5,
+                    "gradientMode": "none",
+                    "hideFrom": {
+                      "legend": false,
+                      "tooltip": false,
+                      "viz": false
+                    },
+                    "insertNulls": false,
+                    "lineInterpolation": "linear",
+                    "lineWidth": 1,
+                    "pointSize": 5,
+                    "scaleDistribution": {
+                      "type": "linear"
+                    },
+                    "showPoints": "auto",
+                    "showValues": false,
+                    "spanNulls": false,
+                    "stacking": {
+                      "group": "A",
+                      "mode": "none"
+                    },
+                    "thresholdsStyle": {
+                      "mode": "off"
+                    }
+                  }
+                },
+                "overrides": []
+              }
+            }
+          }
+        }
+      },
+      "panel-66": {
+        "kind": "Panel",
+        "spec": {
+          "id": 66,
+          "title": "Total Request",
+          "description": "",
+          "links": [],
+          "data": {
+            "kind": "QueryGroup",
+            "spec": {
+              "queries": [
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "query": {
+                      "kind": "DataQuery",
+                      "group": "prometheus",
+                      "version": "v0",
+                      "datasource": {
+                        "name": "PBFA97CFB590B2093"
+                      },
+                      "spec": {
+                        "editorMode": "builder",
+                        "expr": "sum by(endpoint) (increase(finpos_http_requests_total{job=\"backend\", endpoint=~\"/api/v1/item|/api/v1/items|/api/v1/item/.*|/api/v1/items/.*\"}[10m]))",
+                        "legendFormat": "__auto",
+                        "range": true
+                      }
+                    },
+                    "refId": "A",
+                    "hidden": false
+                  }
+                }
+              ],
+              "transformations": [],
+              "queryOptions": {}
+            }
+          },
+          "vizConfig": {
+            "kind": "VizConfig",
+            "group": "timeseries",
+            "version": "13.0.1",
+            "spec": {
+              "options": {
+                "annotations": {
+                  "clustering": -1,
+                  "multiLane": false
+                },
+                "legend": {
+                  "calcs": [],
+                  "displayMode": "list",
+                  "placement": "bottom",
+                  "showLegend": true
+                },
+                "tooltip": {
+                  "hideZeros": false,
+                  "mode": "single",
+                  "sort": "none"
+                }
+              },
+              "fieldConfig": {
+                "defaults": {
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "value": 0,
+                        "color": "green"
+                      },
+                      {
+                        "value": 80,
+                        "color": "red"
+                      }
+                    ]
+                  },
+                  "color": {
+                    "mode": "palette-classic"
+                  },
+                  "custom": {
+                    "axisBorderShow": false,
+                    "axisCenteredZero": false,
+                    "axisColorMode": "text",
+                    "axisLabel": "",
+                    "axisPlacement": "auto",
+                    "barAlignment": 0,
+                    "barWidthFactor": 0.6,
+                    "drawStyle": "line",
+                    "fillOpacity": 5,
+                    "gradientMode": "none",
+                    "hideFrom": {
+                      "legend": false,
+                      "tooltip": false,
+                      "viz": false
+                    },
+                    "insertNulls": false,
+                    "lineInterpolation": "linear",
+                    "lineWidth": 1,
+                    "pointSize": 5,
+                    "scaleDistribution": {
+                      "type": "linear"
+                    },
+                    "showPoints": "auto",
+                    "showValues": false,
+                    "spanNulls": false,
+                    "stacking": {
+                      "group": "A",
+                      "mode": "none"
+                    },
+                    "thresholdsStyle": {
+                      "mode": "off"
+                    }
+                  }
+                },
+                "overrides": []
+              }
+            }
+          }
+        }
+      },
+      "panel-67": {
+        "kind": "Panel",
+        "spec": {
+          "id": 67,
+          "title": "Respon Time",
+          "description": "",
+          "links": [],
+          "data": {
+            "kind": "QueryGroup",
+            "spec": {
+              "queries": [
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "query": {
+                      "kind": "DataQuery",
+                      "group": "prometheus",
+                      "version": "v0",
+                      "datasource": {
+                        "name": "PBFA97CFB590B2093"
+                      },
+                      "spec": {
+                        "editorMode": "builder",
+                        "expr": "sum by(endpoint, method) (rate(finpos_http_request_duration_seconds_sum{job=\"backend\", endpoint=~\".*sales-invoice.*\"}[10m])) / (sum by(endpoint, method) (rate(finpos_http_request_duration_seconds_count{job=\"backend\", endpoint=~\".*sales-invoice.*\"}[10m])))",
+                        "legendFormat": "{{method}} {{endpoint}}",
+                        "range": true
+                      }
+                    },
+                    "refId": "A",
+                    "hidden": false
+                  }
+                }
+              ],
+              "transformations": [],
+              "queryOptions": {}
+            }
+          },
+          "vizConfig": {
+            "kind": "VizConfig",
+            "group": "timeseries",
+            "version": "13.0.1",
+            "spec": {
+              "options": {
+                "annotations": {
+                  "clustering": -1,
+                  "multiLane": false
+                },
+                "legend": {
+                  "calcs": [],
+                  "displayMode": "list",
+                  "placement": "bottom",
+                  "showLegend": true
+                },
+                "tooltip": {
+                  "hideZeros": false,
+                  "mode": "single",
+                  "sort": "none"
+                }
+              },
+              "fieldConfig": {
+                "defaults": {
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "value": 0,
+                        "color": "green"
+                      },
+                      {
+                        "value": 80,
+                        "color": "red"
+                      }
+                    ]
+                  },
+                  "color": {
+                    "mode": "palette-classic"
+                  },
+                  "custom": {
+                    "axisBorderShow": false,
+                    "axisCenteredZero": false,
+                    "axisColorMode": "text",
+                    "axisLabel": "",
+                    "axisPlacement": "auto",
+                    "barAlignment": 0,
+                    "barWidthFactor": 0.6,
+                    "drawStyle": "line",
+                    "fillOpacity": 0,
+                    "gradientMode": "none",
+                    "hideFrom": {
+                      "legend": false,
+                      "tooltip": false,
+                      "viz": false
+                    },
+                    "insertNulls": false,
+                    "lineInterpolation": "linear",
+                    "lineWidth": 1,
+                    "pointSize": 5,
+                    "scaleDistribution": {
+                      "type": "linear"
+                    },
+                    "showPoints": "auto",
+                    "showValues": false,
+                    "spanNulls": false,
+                    "stacking": {
+                      "group": "A",
+                      "mode": "none"
+                    },
+                    "thresholdsStyle": {
+                      "mode": "off"
+                    }
+                  }
+                },
+                "overrides": []
+              }
+            }
+          }
+        }
+      },
+      "panel-68": {
+        "kind": "Panel",
+        "spec": {
+          "id": 68,
+          "title": "Respon Time",
+          "description": "",
+          "links": [],
+          "data": {
+            "kind": "QueryGroup",
+            "spec": {
+              "queries": [
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "query": {
+                      "kind": "DataQuery",
+                      "group": "prometheus",
+                      "version": "v0",
+                      "datasource": {
+                        "name": "PBFA97CFB590B2093"
+                      },
+                      "spec": {
+                        "editorMode": "code",
+                        "expr": "sum by(endpoint, method) (rate(finpos_http_request_duration_seconds_sum{job=\"backend\", endpoint=~\".*sales-quotation.*\"}[10m])) / (sum by(endpoint, method) (rate(finpos_http_request_duration_seconds_count{job=\"backend\", endpoint=~\".*sales-quotation.*\"}[10m])))",
+                        "legendFormat": "{{method}} {{endpoint}}",
+                        "range": true
+                      }
+                    },
+                    "refId": "A",
+                    "hidden": false
+                  }
+                }
+              ],
+              "transformations": [],
+              "queryOptions": {}
+            }
+          },
+          "vizConfig": {
+            "kind": "VizConfig",
+            "group": "timeseries",
+            "version": "13.0.1",
+            "spec": {
+              "options": {
+                "annotations": {
+                  "clustering": -1,
+                  "multiLane": false
+                },
+                "legend": {
+                  "calcs": [],
+                  "displayMode": "list",
+                  "placement": "bottom",
+                  "showLegend": true
+                },
+                "tooltip": {
+                  "hideZeros": false,
+                  "mode": "single",
+                  "sort": "none"
+                }
+              },
+              "fieldConfig": {
+                "defaults": {
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "value": 0,
+                        "color": "green"
+                      },
+                      {
+                        "value": 80,
+                        "color": "red"
+                      }
+                    ]
+                  },
+                  "color": {
+                    "mode": "palette-classic"
+                  },
+                  "custom": {
+                    "axisBorderShow": false,
+                    "axisCenteredZero": false,
+                    "axisColorMode": "text",
+                    "axisLabel": "",
+                    "axisPlacement": "auto",
+                    "barAlignment": 0,
+                    "barWidthFactor": 0.6,
+                    "drawStyle": "line",
+                    "fillOpacity": 10,
+                    "gradientMode": "none",
+                    "hideFrom": {
+                      "legend": false,
+                      "tooltip": false,
+                      "viz": false
+                    },
+                    "insertNulls": false,
+                    "lineInterpolation": "linear",
+                    "lineWidth": 1,
+                    "pointSize": 5,
+                    "scaleDistribution": {
+                      "type": "linear"
+                    },
+                    "showPoints": "auto",
+                    "showValues": false,
+                    "spanNulls": false,
+                    "stacking": {
+                      "group": "A",
+                      "mode": "none"
+                    },
+                    "thresholdsStyle": {
+                      "mode": "off"
+                    }
+                  }
+                },
+                "overrides": []
+              }
+            }
+          }
+        }
+      },
+      "panel-69": {
+        "kind": "Panel",
+        "spec": {
+          "id": 69,
+          "title": "Respon Time",
+          "description": "",
+          "links": [],
+          "data": {
+            "kind": "QueryGroup",
+            "spec": {
+              "queries": [
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "query": {
+                      "kind": "DataQuery",
+                      "group": "prometheus",
+                      "version": "v0",
+                      "datasource": {
+                        "name": "PBFA97CFB590B2093"
+                      },
+                      "spec": {
+                        "editorMode": "code",
+                        "expr": "sum by(endpoint, method) (rate(finpos_http_request_duration_seconds_sum{job=\"backend\", endpoint=~\".*sales-order.*\"}[10m])) / (sum by(endpoint, method) (rate(finpos_http_request_duration_seconds_count{job=\"backend\", endpoint=~\".*sales-order.*\"}[10m])))",
+                        "legendFormat": "{{method}} {{endpoint}}",
+                        "range": true
+                      }
+                    },
+                    "refId": "A",
+                    "hidden": false
+                  }
+                }
+              ],
+              "transformations": [],
+              "queryOptions": {}
+            }
+          },
+          "vizConfig": {
+            "kind": "VizConfig",
+            "group": "timeseries",
+            "version": "13.0.1",
+            "spec": {
+              "options": {
+                "annotations": {
+                  "clustering": -1,
+                  "multiLane": false
+                },
+                "legend": {
+                  "calcs": [],
+                  "displayMode": "list",
+                  "placement": "bottom",
+                  "showLegend": true
+                },
+                "tooltip": {
+                  "hideZeros": false,
+                  "mode": "single",
+                  "sort": "none"
+                }
+              },
+              "fieldConfig": {
+                "defaults": {
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "value": 0,
+                        "color": "green"
+                      },
+                      {
+                        "value": 80,
+                        "color": "red"
+                      }
+                    ]
+                  },
+                  "color": {
+                    "mode": "palette-classic"
+                  },
+                  "custom": {
+                    "axisBorderShow": false,
+                    "axisCenteredZero": false,
+                    "axisColorMode": "text",
+                    "axisLabel": "",
+                    "axisPlacement": "auto",
+                    "barAlignment": 0,
+                    "barWidthFactor": 0.6,
+                    "drawStyle": "line",
+                    "fillOpacity": 5,
+                    "gradientMode": "none",
+                    "hideFrom": {
+                      "legend": false,
+                      "tooltip": false,
+                      "viz": false
+                    },
+                    "insertNulls": false,
+                    "lineInterpolation": "linear",
+                    "lineWidth": 1,
+                    "pointSize": 5,
+                    "scaleDistribution": {
+                      "type": "linear"
+                    },
+                    "showPoints": "auto",
+                    "showValues": false,
+                    "spanNulls": false,
+                    "stacking": {
+                      "group": "A",
+                      "mode": "none"
+                    },
+                    "thresholdsStyle": {
+                      "mode": "off"
+                    }
+                  }
+                },
+                "overrides": []
+              }
+            }
+          }
+        }
+      },
+      "panel-70": {
+        "kind": "Panel",
+        "spec": {
+          "id": 70,
+          "title": "Respon Time",
+          "description": "",
+          "links": [],
+          "data": {
+            "kind": "QueryGroup",
+            "spec": {
+              "queries": [
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "query": {
+                      "kind": "DataQuery",
+                      "group": "prometheus",
+                      "version": "v0",
+                      "datasource": {
+                        "name": "PBFA97CFB590B2093"
+                      },
+                      "spec": {
+                        "editorMode": "code",
+                        "expr": "sum by(endpoint, method) (rate(finpos_http_request_duration_seconds_sum{job=\"backend\", endpoint=~\".*sales-payment.*\"}[10m])) / (sum by(endpoint, method) (rate(finpos_http_request_duration_seconds_count{job=\"backend\", endpoint=~\".*sales-payment.*\"}[10m])))",
+                        "legendFormat": "{{method}} {{endpoint}}",
+                        "range": true
+                      }
+                    },
+                    "refId": "A",
+                    "hidden": false
+                  }
+                }
+              ],
+              "transformations": [],
+              "queryOptions": {}
+            }
+          },
+          "vizConfig": {
+            "kind": "VizConfig",
+            "group": "timeseries",
+            "version": "13.0.1",
+            "spec": {
+              "options": {
+                "annotations": {
+                  "clustering": -1,
+                  "multiLane": false
+                },
+                "legend": {
+                  "calcs": [],
+                  "displayMode": "list",
+                  "placement": "bottom",
+                  "showLegend": true
+                },
+                "tooltip": {
+                  "hideZeros": false,
+                  "mode": "single",
+                  "sort": "none"
+                }
+              },
+              "fieldConfig": {
+                "defaults": {
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "value": 0,
+                        "color": "green"
+                      },
+                      {
+                        "value": 80,
+                        "color": "red"
+                      }
+                    ]
+                  },
+                  "color": {
+                    "mode": "palette-classic"
+                  },
+                  "custom": {
+                    "axisBorderShow": false,
+                    "axisCenteredZero": false,
+                    "axisColorMode": "text",
+                    "axisLabel": "",
+                    "axisPlacement": "auto",
+                    "barAlignment": 0,
+                    "barWidthFactor": 0.6,
+                    "drawStyle": "line",
+                    "fillOpacity": 5,
+                    "gradientMode": "none",
+                    "hideFrom": {
+                      "legend": false,
+                      "tooltip": false,
+                      "viz": false
+                    },
+                    "insertNulls": false,
+                    "lineInterpolation": "linear",
+                    "lineWidth": 1,
+                    "pointSize": 5,
+                    "scaleDistribution": {
+                      "type": "linear"
+                    },
+                    "showPoints": "auto",
+                    "showValues": false,
+                    "spanNulls": false,
+                    "stacking": {
+                      "group": "A",
+                      "mode": "none"
+                    },
+                    "thresholdsStyle": {
+                      "mode": "off"
+                    }
+                  }
+                },
+                "overrides": []
+              }
+            }
+          }
+        }
+      },
+      "panel-71": {
+        "kind": "Panel",
+        "spec": {
+          "id": 71,
+          "title": "Respon Time",
+          "description": "",
+          "links": [],
+          "data": {
+            "kind": "QueryGroup",
+            "spec": {
+              "queries": [
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "query": {
+                      "kind": "DataQuery",
+                      "group": "prometheus",
+                      "version": "v0",
+                      "datasource": {
+                        "name": "PBFA97CFB590B2093"
+                      },
+                      "spec": {
+                        "editorMode": "code",
+                        "expr": "sum by(endpoint, method) (rate(finpos_http_request_duration_seconds_sum{job=\"backend\", endpoint=~\".*sales-return.*\"}[10m])) / (sum by(endpoint, method) (rate(finpos_http_request_duration_seconds_count{job=\"backend\", endpoint=~\".*sales-return.*\"}[10m])))",
+                        "legendFormat": "{{method}} {{endpoint}}",
+                        "range": true
+                      }
+                    },
+                    "refId": "A",
+                    "hidden": false
+                  }
+                }
+              ],
+              "transformations": [],
+              "queryOptions": {}
+            }
+          },
+          "vizConfig": {
+            "kind": "VizConfig",
+            "group": "timeseries",
+            "version": "13.0.1",
+            "spec": {
+              "options": {
+                "annotations": {
+                  "clustering": -1,
+                  "multiLane": false
+                },
+                "legend": {
+                  "calcs": [],
+                  "displayMode": "list",
+                  "placement": "bottom",
+                  "showLegend": true
+                },
+                "tooltip": {
+                  "hideZeros": false,
+                  "mode": "single",
+                  "sort": "none"
+                }
+              },
+              "fieldConfig": {
+                "defaults": {
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "value": 0,
+                        "color": "green"
+                      },
+                      {
+                        "value": 80,
+                        "color": "red"
+                      }
+                    ]
+                  },
+                  "color": {
+                    "mode": "palette-classic"
+                  },
+                  "custom": {
+                    "axisBorderShow": false,
+                    "axisCenteredZero": false,
+                    "axisColorMode": "text",
+                    "axisLabel": "",
+                    "axisPlacement": "auto",
+                    "barAlignment": 0,
+                    "barWidthFactor": 0.6,
+                    "drawStyle": "line",
+                    "fillOpacity": 5,
+                    "gradientMode": "none",
+                    "hideFrom": {
+                      "legend": false,
+                      "tooltip": false,
+                      "viz": false
+                    },
+                    "insertNulls": false,
+                    "lineInterpolation": "linear",
+                    "lineWidth": 1,
+                    "pointSize": 5,
+                    "scaleDistribution": {
+                      "type": "linear"
+                    },
+                    "showPoints": "auto",
+                    "showValues": false,
+                    "spanNulls": false,
+                    "stacking": {
+                      "group": "A",
+                      "mode": "none"
+                    },
+                    "thresholdsStyle": {
+                      "mode": "off"
+                    }
+                  }
+                },
+                "overrides": []
+              }
+            }
+          }
+        }
+      },
+      "panel-72": {
+        "kind": "Panel",
+        "spec": {
+          "id": 72,
+          "title": "Respon Time",
+          "description": "",
+          "links": [],
+          "data": {
+            "kind": "QueryGroup",
+            "spec": {
+              "queries": [
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "query": {
+                      "kind": "DataQuery",
+                      "group": "prometheus",
+                      "version": "v0",
+                      "datasource": {
+                        "name": "PBFA97CFB590B2093"
+                      },
+                      "spec": {
+                        "editorMode": "code",
+                        "expr": "sum by(endpoint, method) (rate(finpos_http_request_duration_seconds_sum{job=\"backend\", endpoint=~\".*delivery-order.*\"}[10m])) / (sum by(endpoint, method) (rate(finpos_http_request_duration_seconds_count{job=\"backend\", endpoint=~\".*delivery-order.*\"}[10m])))",
+                        "legendFormat": "{{method}} {{endpoint}}",
+                        "range": true
+                      }
+                    },
+                    "refId": "A",
+                    "hidden": false
+                  }
+                }
+              ],
+              "transformations": [],
+              "queryOptions": {}
+            }
+          },
+          "vizConfig": {
+            "kind": "VizConfig",
+            "group": "timeseries",
+            "version": "13.0.1",
+            "spec": {
+              "options": {
+                "annotations": {
+                  "clustering": -1,
+                  "multiLane": false
+                },
+                "legend": {
+                  "calcs": [],
+                  "displayMode": "list",
+                  "placement": "bottom",
+                  "showLegend": true
+                },
+                "tooltip": {
+                  "hideZeros": false,
+                  "mode": "single",
+                  "sort": "none"
+                }
+              },
+              "fieldConfig": {
+                "defaults": {
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "value": 0,
+                        "color": "green"
+                      },
+                      {
+                        "value": 80,
+                        "color": "red"
+                      }
+                    ]
+                  },
+                  "color": {
+                    "mode": "palette-classic"
+                  },
+                  "custom": {
+                    "axisBorderShow": false,
+                    "axisCenteredZero": false,
+                    "axisColorMode": "text",
+                    "axisLabel": "",
+                    "axisPlacement": "auto",
+                    "barAlignment": 0,
+                    "barWidthFactor": 0.6,
+                    "drawStyle": "line",
+                    "fillOpacity": 5,
+                    "gradientMode": "none",
+                    "hideFrom": {
+                      "legend": false,
+                      "tooltip": false,
+                      "viz": false
+                    },
+                    "insertNulls": false,
+                    "lineInterpolation": "linear",
+                    "lineWidth": 1,
+                    "pointSize": 5,
+                    "scaleDistribution": {
+                      "type": "linear"
+                    },
+                    "showPoints": "auto",
+                    "showValues": false,
+                    "spanNulls": false,
+                    "stacking": {
+                      "group": "A",
+                      "mode": "none"
+                    },
+                    "thresholdsStyle": {
+                      "mode": "off"
+                    }
+                  }
+                },
+                "overrides": []
+              }
+            }
+          }
+        }
+      },
+      "panel-73": {
+        "kind": "Panel",
+        "spec": {
+          "id": 73,
+          "title": "Respon Time",
+          "description": "",
+          "links": [],
+          "data": {
+            "kind": "QueryGroup",
+            "spec": {
+              "queries": [
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "query": {
+                      "kind": "DataQuery",
+                      "group": "prometheus",
+                      "version": "v0",
+                      "datasource": {
+                        "name": "PBFA97CFB590B2093"
+                      },
+                      "spec": {
+                        "editorMode": "code",
+                        "expr": "sum by(endpoint, method) (rate(finpos_http_request_duration_seconds_sum{job=\"backend\", endpoint=~\".*sales-advance.*\"}[10m])) / (sum by(endpoint, method) (rate(finpos_http_request_duration_seconds_count{job=\"backend\", endpoint=~\".*sales-advance.*\"}[10m])))",
+                        "legendFormat": "{{method}} {{endpoint}}",
+                        "range": true
+                      }
+                    },
+                    "refId": "A",
+                    "hidden": false
+                  }
+                }
+              ],
+              "transformations": [],
+              "queryOptions": {}
+            }
+          },
+          "vizConfig": {
+            "kind": "VizConfig",
+            "group": "timeseries",
+            "version": "13.0.1",
+            "spec": {
+              "options": {
+                "annotations": {
+                  "clustering": -1,
+                  "multiLane": false
+                },
+                "legend": {
+                  "calcs": [],
+                  "displayMode": "list",
+                  "placement": "bottom",
+                  "showLegend": true
+                },
+                "tooltip": {
+                  "hideZeros": false,
+                  "mode": "single",
+                  "sort": "none"
+                }
+              },
+              "fieldConfig": {
+                "defaults": {
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "value": 0,
+                        "color": "green"
+                      },
+                      {
+                        "value": 80,
+                        "color": "red"
+                      }
+                    ]
+                  },
+                  "color": {
+                    "mode": "palette-classic"
+                  },
+                  "custom": {
+                    "axisBorderShow": false,
+                    "axisCenteredZero": false,
+                    "axisColorMode": "text",
+                    "axisLabel": "",
+                    "axisPlacement": "auto",
+                    "barAlignment": 0,
+                    "barWidthFactor": 0.6,
+                    "drawStyle": "line",
+                    "fillOpacity": 5,
+                    "gradientMode": "none",
+                    "hideFrom": {
+                      "legend": false,
+                      "tooltip": false,
+                      "viz": false
+                    },
+                    "insertNulls": false,
+                    "lineInterpolation": "linear",
+                    "lineWidth": 1,
+                    "pointSize": 5,
+                    "scaleDistribution": {
+                      "type": "linear"
+                    },
+                    "showPoints": "auto",
+                    "showValues": false,
+                    "spanNulls": false,
+                    "stacking": {
+                      "group": "A",
+                      "mode": "none"
+                    },
+                    "thresholdsStyle": {
+                      "mode": "off"
+                    }
+                  }
+                },
+                "overrides": []
+              }
+            }
+          }
+        }
       }
     },
     "layout": {
@@ -3880,8 +4760,8 @@
                                 "spec": {
                                   "x": 0,
                                   "y": 11,
-                                  "width": 24,
-                                  "height": 12,
+                                  "width": 12,
+                                  "height": 8,
                                   "element": {
                                     "kind": "ElementReference",
                                     "name": "panel-4"
@@ -3891,10 +4771,23 @@
                               {
                                 "kind": "GridLayoutItem",
                                 "spec": {
+                                  "x": 12,
+                                  "y": 11,
+                                  "width": 12,
+                                  "height": 8,
+                                  "element": {
+                                    "kind": "ElementReference",
+                                    "name": "panel-34"
+                                  }
+                                }
+                              },
+                              {
+                                "kind": "GridLayoutItem",
+                                "spec": {
                                   "x": 0,
-                                  "y": 23,
+                                  "y": 19,
                                   "width": 24,
-                                  "height": 10,
+                                  "height": 7,
                                   "element": {
                                     "kind": "ElementReference",
                                     "name": "panel-51"
@@ -3905,12 +4798,12 @@
                                 "kind": "GridLayoutItem",
                                 "spec": {
                                   "x": 0,
-                                  "y": 33,
+                                  "y": 26,
                                   "width": 24,
-                                  "height": 12,
+                                  "height": 11,
                                   "element": {
                                     "kind": "ElementReference",
-                                    "name": "panel-34"
+                                    "name": "panel-64"
                                   }
                                 }
                               }
@@ -4160,15 +5053,16 @@
                         "title": "Sales Invoice",
                         "collapse": false,
                         "layout": {
-                          "kind": "AutoGridLayout",
+                          "kind": "GridLayout",
                           "spec": {
-                            "maxColumnCount": 3,
-                            "columnWidthMode": "standard",
-                            "rowHeightMode": "standard",
                             "items": [
                               {
-                                "kind": "AutoGridLayoutItem",
+                                "kind": "GridLayoutItem",
                                 "spec": {
+                                  "x": 0,
+                                  "y": 0,
+                                  "width": 12,
+                                  "height": 9,
                                   "element": {
                                     "kind": "ElementReference",
                                     "name": "panel-37"
@@ -4176,11 +5070,28 @@
                                 }
                               },
                               {
-                                "kind": "AutoGridLayoutItem",
+                                "kind": "GridLayoutItem",
                                 "spec": {
+                                  "x": 12,
+                                  "y": 0,
+                                  "width": 12,
+                                  "height": 9,
                                   "element": {
                                     "kind": "ElementReference",
                                     "name": "panel-44"
+                                  }
+                                }
+                              },
+                              {
+                                "kind": "GridLayoutItem",
+                                "spec": {
+                                  "x": 0,
+                                  "y": 9,
+                                  "width": 24,
+                                  "height": 8,
+                                  "element": {
+                                    "kind": "ElementReference",
+                                    "name": "panel-67"
                                   }
                                 }
                               }
@@ -4195,15 +5106,16 @@
                         "title": "Sales Quotation",
                         "collapse": false,
                         "layout": {
-                          "kind": "AutoGridLayout",
+                          "kind": "GridLayout",
                           "spec": {
-                            "maxColumnCount": 3,
-                            "columnWidthMode": "standard",
-                            "rowHeightMode": "standard",
                             "items": [
                               {
-                                "kind": "AutoGridLayoutItem",
+                                "kind": "GridLayoutItem",
                                 "spec": {
+                                  "x": 0,
+                                  "y": 0,
+                                  "width": 12,
+                                  "height": 8,
                                   "element": {
                                     "kind": "ElementReference",
                                     "name": "panel-38"
@@ -4211,11 +5123,28 @@
                                 }
                               },
                               {
-                                "kind": "AutoGridLayoutItem",
+                                "kind": "GridLayoutItem",
                                 "spec": {
+                                  "x": 12,
+                                  "y": 0,
+                                  "width": 12,
+                                  "height": 8,
                                   "element": {
                                     "kind": "ElementReference",
                                     "name": "panel-45"
+                                  }
+                                }
+                              },
+                              {
+                                "kind": "GridLayoutItem",
+                                "spec": {
+                                  "x": 0,
+                                  "y": 8,
+                                  "width": 24,
+                                  "height": 8,
+                                  "element": {
+                                    "kind": "ElementReference",
+                                    "name": "panel-68"
                                   }
                                 }
                               }
@@ -4230,15 +5159,16 @@
                         "title": "Sales Order",
                         "collapse": false,
                         "layout": {
-                          "kind": "AutoGridLayout",
+                          "kind": "GridLayout",
                           "spec": {
-                            "maxColumnCount": 3,
-                            "columnWidthMode": "standard",
-                            "rowHeightMode": "standard",
                             "items": [
                               {
-                                "kind": "AutoGridLayoutItem",
+                                "kind": "GridLayoutItem",
                                 "spec": {
+                                  "x": 0,
+                                  "y": 0,
+                                  "width": 12,
+                                  "height": 8,
                                   "element": {
                                     "kind": "ElementReference",
                                     "name": "panel-39"
@@ -4246,11 +5176,28 @@
                                 }
                               },
                               {
-                                "kind": "AutoGridLayoutItem",
+                                "kind": "GridLayoutItem",
                                 "spec": {
+                                  "x": 12,
+                                  "y": 0,
+                                  "width": 12,
+                                  "height": 8,
                                   "element": {
                                     "kind": "ElementReference",
                                     "name": "panel-46"
+                                  }
+                                }
+                              },
+                              {
+                                "kind": "GridLayoutItem",
+                                "spec": {
+                                  "x": 0,
+                                  "y": 8,
+                                  "width": 24,
+                                  "height": 6,
+                                  "element": {
+                                    "kind": "ElementReference",
+                                    "name": "panel-69"
                                   }
                                 }
                               }
@@ -4265,15 +5212,16 @@
                         "title": "Delivery Order",
                         "collapse": false,
                         "layout": {
-                          "kind": "AutoGridLayout",
+                          "kind": "GridLayout",
                           "spec": {
-                            "maxColumnCount": 3,
-                            "columnWidthMode": "standard",
-                            "rowHeightMode": "standard",
                             "items": [
                               {
-                                "kind": "AutoGridLayoutItem",
+                                "kind": "GridLayoutItem",
                                 "spec": {
+                                  "x": 0,
+                                  "y": 0,
+                                  "width": 12,
+                                  "height": 8,
                                   "element": {
                                     "kind": "ElementReference",
                                     "name": "panel-40"
@@ -4281,11 +5229,28 @@
                                 }
                               },
                               {
-                                "kind": "AutoGridLayoutItem",
+                                "kind": "GridLayoutItem",
                                 "spec": {
+                                  "x": 12,
+                                  "y": 0,
+                                  "width": 12,
+                                  "height": 8,
                                   "element": {
                                     "kind": "ElementReference",
                                     "name": "panel-47"
+                                  }
+                                }
+                              },
+                              {
+                                "kind": "GridLayoutItem",
+                                "spec": {
+                                  "x": 0,
+                                  "y": 8,
+                                  "width": 24,
+                                  "height": 7,
+                                  "element": {
+                                    "kind": "ElementReference",
+                                    "name": "panel-72"
                                   }
                                 }
                               }
@@ -4300,15 +5265,16 @@
                         "title": "Sales Advance",
                         "collapse": false,
                         "layout": {
-                          "kind": "AutoGridLayout",
+                          "kind": "GridLayout",
                           "spec": {
-                            "maxColumnCount": 3,
-                            "columnWidthMode": "standard",
-                            "rowHeightMode": "standard",
                             "items": [
                               {
-                                "kind": "AutoGridLayoutItem",
+                                "kind": "GridLayoutItem",
                                 "spec": {
+                                  "x": 0,
+                                  "y": 0,
+                                  "width": 12,
+                                  "height": 7,
                                   "element": {
                                     "kind": "ElementReference",
                                     "name": "panel-41"
@@ -4316,11 +5282,28 @@
                                 }
                               },
                               {
-                                "kind": "AutoGridLayoutItem",
+                                "kind": "GridLayoutItem",
                                 "spec": {
+                                  "x": 12,
+                                  "y": 0,
+                                  "width": 12,
+                                  "height": 7,
                                   "element": {
                                     "kind": "ElementReference",
                                     "name": "panel-48"
+                                  }
+                                }
+                              },
+                              {
+                                "kind": "GridLayoutItem",
+                                "spec": {
+                                  "x": 0,
+                                  "y": 7,
+                                  "width": 24,
+                                  "height": 6,
+                                  "element": {
+                                    "kind": "ElementReference",
+                                    "name": "panel-73"
                                   }
                                 }
                               }
@@ -4335,15 +5318,16 @@
                         "title": "Sales Payment",
                         "collapse": false,
                         "layout": {
-                          "kind": "AutoGridLayout",
+                          "kind": "GridLayout",
                           "spec": {
-                            "maxColumnCount": 3,
-                            "columnWidthMode": "standard",
-                            "rowHeightMode": "standard",
                             "items": [
                               {
-                                "kind": "AutoGridLayoutItem",
+                                "kind": "GridLayoutItem",
                                 "spec": {
+                                  "x": 0,
+                                  "y": 0,
+                                  "width": 12,
+                                  "height": 8,
                                   "element": {
                                     "kind": "ElementReference",
                                     "name": "panel-42"
@@ -4351,11 +5335,28 @@
                                 }
                               },
                               {
-                                "kind": "AutoGridLayoutItem",
+                                "kind": "GridLayoutItem",
                                 "spec": {
+                                  "x": 12,
+                                  "y": 0,
+                                  "width": 12,
+                                  "height": 8,
                                   "element": {
                                     "kind": "ElementReference",
                                     "name": "panel-49"
+                                  }
+                                }
+                              },
+                              {
+                                "kind": "GridLayoutItem",
+                                "spec": {
+                                  "x": 0,
+                                  "y": 8,
+                                  "width": 24,
+                                  "height": 8,
+                                  "element": {
+                                    "kind": "ElementReference",
+                                    "name": "panel-70"
                                   }
                                 }
                               }
@@ -4370,15 +5371,16 @@
                         "title": "Sales Return",
                         "collapse": false,
                         "layout": {
-                          "kind": "AutoGridLayout",
+                          "kind": "GridLayout",
                           "spec": {
-                            "maxColumnCount": 3,
-                            "columnWidthMode": "standard",
-                            "rowHeightMode": "standard",
                             "items": [
                               {
-                                "kind": "AutoGridLayoutItem",
+                                "kind": "GridLayoutItem",
                                 "spec": {
+                                  "x": 0,
+                                  "y": 0,
+                                  "width": 12,
+                                  "height": 8,
                                   "element": {
                                     "kind": "ElementReference",
                                     "name": "panel-43"
@@ -4386,11 +5388,28 @@
                                 }
                               },
                               {
-                                "kind": "AutoGridLayoutItem",
+                                "kind": "GridLayoutItem",
                                 "spec": {
+                                  "x": 12,
+                                  "y": 0,
+                                  "width": 12,
+                                  "height": 8,
                                   "element": {
                                     "kind": "ElementReference",
                                     "name": "panel-50"
+                                  }
+                                }
+                              },
+                              {
+                                "kind": "GridLayoutItem",
+                                "spec": {
+                                  "x": 0,
+                                  "y": 8,
+                                  "width": 24,
+                                  "height": 7,
+                                  "element": {
+                                    "kind": "ElementReference",
+                                    "name": "panel-71"
                                   }
                                 }
                               }
@@ -4407,38 +5426,48 @@
           {
             "kind": "TabsLayoutTab",
             "spec": {
-              "title": "Test",
+              "title": "Inventory",
               "layout": {
-                "kind": "AutoGridLayout",
+                "kind": "RowsLayout",
                 "spec": {
-                  "maxColumnCount": 3,
-                  "columnWidthMode": "standard",
-                  "rowHeightMode": "standard",
-                  "items": [
+                  "rows": [
                     {
-                      "kind": "AutoGridLayoutItem",
+                      "kind": "RowsLayoutRow",
                       "spec": {
-                        "element": {
-                          "kind": "ElementReference",
-                          "name": "panel-30"
-                        }
-                      }
-                    },
-                    {
-                      "kind": "AutoGridLayoutItem",
-                      "spec": {
-                        "element": {
-                          "kind": "ElementReference",
-                          "name": "panel-32"
-                        }
-                      }
-                    },
-                    {
-                      "kind": "AutoGridLayoutItem",
-                      "spec": {
-                        "element": {
-                          "kind": "ElementReference",
-                          "name": "panel-36"
+                        "title": "Items",
+                        "collapse": false,
+                        "layout": {
+                          "kind": "GridLayout",
+                          "spec": {
+                            "items": [
+                              {
+                                "kind": "GridLayoutItem",
+                                "spec": {
+                                  "x": 0,
+                                  "y": 0,
+                                  "width": 24,
+                                  "height": 8,
+                                  "element": {
+                                    "kind": "ElementReference",
+                                    "name": "panel-66"
+                                  }
+                                }
+                              },
+                              {
+                                "kind": "GridLayoutItem",
+                                "spec": {
+                                  "x": 0,
+                                  "y": 8,
+                                  "width": 24,
+                                  "height": 7,
+                                  "element": {
+                                    "kind": "ElementReference",
+                                    "name": "panel-65"
+                                  }
+                                }
+                              }
+                            ]
+                          }
                         }
                       }
                     }
