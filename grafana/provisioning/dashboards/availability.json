@@ -5,8 +5,8 @@
     "name": "backend-monitoring",
     "namespace": "default",
     "uid": "e23e9ccd-e692-475d-8ff5-538ed98e642d",
-    "resourceVersion": "1776756560912986",
-    "generation": 128,
+    "resourceVersion": "1776756869895981",
+    "generation": 129,
     "creationTimestamp": "2026-04-13T07:20:45Z",
     "labels": {
       "grafana.app/deprecatedInternalID": "3459566040236032"
@@ -18,11 +18,11 @@
       "grafana.app/managerAllowsEdits": "true",
       "grafana.app/managerId": "default",
       "grafana.app/saved-from-ui": "Grafana v13.0.1 (a100054f)",
-      "grafana.app/sourceChecksum": "41366db2e496398e8fe21cdf77eabcb9",
+      "grafana.app/sourceChecksum": "d05804a976075cb3dad1b919df8f36b5",
       "grafana.app/sourcePath": "/etc/grafana/provisioning/dashboards/availability.json",
-      "grafana.app/sourceTimestamp": "1776755035000",
+      "grafana.app/sourceTimestamp": "1776756579000",
       "grafana.app/updatedBy": "user:afibudzz8mjgge",
-      "grafana.app/updatedTimestamp": "2026-04-21T07:29:20Z"
+      "grafana.app/updatedTimestamp": "2026-04-21T07:34:29Z"
     }
   },
   "spec": {
@@ -3563,6 +3563,124 @@
             }
           }
         }
+      },
+      "panel-62": {
+        "kind": "Panel",
+        "spec": {
+          "id": 62,
+          "title": "By Endpoint",
+          "description": "",
+          "links": [],
+          "data": {
+            "kind": "QueryGroup",
+            "spec": {
+              "queries": [
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "query": {
+                      "kind": "DataQuery",
+                      "group": "prometheus",
+                      "version": "v0",
+                      "datasource": {
+                        "name": "PBFA97CFB590B2093"
+                      },
+                      "spec": {
+                        "editorMode": "builder",
+                        "expr": "sum by(endpoint) (increase(finpos_http_requests_total{job=\"backend\", status!~\"2.*\"}[10m])) > 0",
+                        "legendFormat": "{{service}} {{endpoint}}",
+                        "range": true
+                      }
+                    },
+                    "refId": "A",
+                    "hidden": false
+                  }
+                }
+              ],
+              "transformations": [],
+              "queryOptions": {}
+            }
+          },
+          "vizConfig": {
+            "kind": "VizConfig",
+            "group": "timeseries",
+            "version": "13.0.1",
+            "spec": {
+              "options": {
+                "annotations": {
+                  "clustering": -1,
+                  "multiLane": false
+                },
+                "legend": {
+                  "calcs": [],
+                  "displayMode": "list",
+                  "placement": "bottom",
+                  "showLegend": true
+                },
+                "tooltip": {
+                  "hideZeros": false,
+                  "mode": "single",
+                  "sort": "none"
+                }
+              },
+              "fieldConfig": {
+                "defaults": {
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "value": 0,
+                        "color": "green"
+                      },
+                      {
+                        "value": 80,
+                        "color": "red"
+                      }
+                    ]
+                  },
+                  "color": {
+                    "mode": "palette-classic"
+                  },
+                  "custom": {
+                    "axisBorderShow": false,
+                    "axisCenteredZero": false,
+                    "axisColorMode": "text",
+                    "axisLabel": "",
+                    "axisPlacement": "auto",
+                    "barAlignment": 0,
+                    "barWidthFactor": 0.6,
+                    "drawStyle": "line",
+                    "fillOpacity": 5,
+                    "gradientMode": "none",
+                    "hideFrom": {
+                      "legend": false,
+                      "tooltip": false,
+                      "viz": false
+                    },
+                    "insertNulls": false,
+                    "lineInterpolation": "linear",
+                    "lineWidth": 1,
+                    "pointSize": 5,
+                    "scaleDistribution": {
+                      "type": "linear"
+                    },
+                    "showPoints": "auto",
+                    "showValues": false,
+                    "spanNulls": false,
+                    "stacking": {
+                      "group": "A",
+                      "mode": "none"
+                    },
+                    "thresholdsStyle": {
+                      "mode": "off"
+                    }
+                  }
+                },
+                "overrides": []
+              }
+            }
+          }
+        }
       }
     },
     "layout": {
@@ -3741,6 +3859,19 @@
                                   "element": {
                                     "kind": "ElementReference",
                                     "name": "panel-54"
+                                  }
+                                }
+                              },
+                              {
+                                "kind": "GridLayoutItem",
+                                "spec": {
+                                  "x": 0,
+                                  "y": 15,
+                                  "width": 24,
+                                  "height": 9,
+                                  "element": {
+                                    "kind": "ElementReference",
+                                    "name": "panel-62"
                                   }
                                 }
                               }
