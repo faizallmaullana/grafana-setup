@@ -105,6 +105,30 @@ scrape_configs:
           - 'fajarcell.kelolaaja.id'
         labels:
           service: 'Fajar Cellular'
+      - targets:
+          - 'fajarprinting.kelolaaja.id'
+        labels:
+          service: 'Fajar Printing'
+      - targets:
+          - 'suryaliberty.kelolaaja.id'
+        labels:
+          service: 'Surya Liberty'
+      - targets:
+          - 'cheriaholiday.kelolaaja.id'
+        labels:
+          service: 'Cheria Holiday'
+      - targets:
+          - 'bam.kelolaaja.id'
+        labels:
+          service: 'CV. Bumi Aci Mandiri'
+      - targets:
+          - 'cvtanisukses.kelolaaja.id'
+        labels:
+          service: 'CV. Tani Sukses'
+      - targets:
+          - 'sabarjaya.kelolaaja.id'
+        labels:
+          service: 'Sabar Jaya'
     metrics_path: '/api/v1/metrics'
 
   - job_name: 'node-exporter'
