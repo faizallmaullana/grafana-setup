@@ -23,112 +23,37 @@ scrape_configs:
         values:
           - "kelolakey380600"
     static_configs:
-      # - targets:
-      #     - 'host.docker.internal:8080'
-      #   labels:
-      #     service: 'Localhost'
-      #     env: 'prod'
-      # - targets:
-      #     - 'testlive.kelolaaja.id'
-      #   labels:
-      #     service: 'Test Live'
-      # - targets:
-      #     - 'app.demo.kelolaaja.id'
-      #   labels:
-      #     service: 'App Demo'
-      #     env: 'prod'
       - targets:
-          - 'sriendo.kelolaaja.id'
+          - 'host.docker.internal:8080'
         labels:
-          service: 'Sriendo'
+          service: 'Localhost'
+          env: 'prod'
       - targets:
-          - 'aura.kelolaaja.id'
+          - 'gaiahomecleaning.kelolaaja.id'
         labels:
-          service: 'Aura Kebab'
-      - targets:
-          - 'karyaabadi.kelolaaja.id'
-        labels:
-          service: 'Karya Abadi Sejahtera'
+          service: 'Gaia Home Cleaning'
+          env: 'prod'
       - targets:
           - 'mbfurnistore.kelolaaja.id'
         labels:
-          service: 'MB Furnistore'
+          service: 'MB Furni Store'
+          env: 'prod'
       - targets:
-          - 'alyadwik.kelolaaja.id'
+          - 'testlive.kelolaaja.id'
         labels:
-          service: 'Alya Dwi Kerupuk'
+          service: 'Test Live'
       - targets:
-          - 'dawang.kelolaaja.id'
+          - 'demo.kelolaaja.id'
         labels:
-          service: 'Dawang'
-      - targets:
-          - 'subaru.kelolaaja.id'
-        labels:
-          service: 'Subaru Alam Makmur'
-      - targets:
-          - 'tiarakurnia.kelolaaja.id'
-        labels:
-          service: 'Tiara Kurnia'
-      - targets:
-          - 'sumberrezeki.kelolaaja.id'
-        labels:
-          service: 'Sumber Rezeki'
-      - targets:
-          - 'csamorfosa.kelolaaja.id'
-        labels:
-          service: 'CSA Morfosa'
-      - targets:
-          - 'sambalbusanti.kelolaaja.id'
-        labels:
-          service: 'Sambal Bu Santi'
-      - targets:
-          - 'sekawan.kelolaaja.id'
-        labels:
-          service: 'Sekawan'
-      - targets:
-          - 'gloriacell.kelolaaja.id'
-        labels:
-          service: 'Gloria Cell'
-      - targets:
-          - 'megahmandirilestari.kelolaaja.id'
-        labels:
-          service: 'Megah Mandiri Lestari'
+          service: 'Demo'
       - targets:
           - 'damikabuanaindonesia.kelolaaja.id'
         labels:
           service: 'Damika Buana Indonesia'
       - targets:
-          - 'tib.kelolaaja.id'
+          - 'sriendo.kelolaaja.id'
         labels:
-          service: 'Tiga Inspira Bersama'
-      - targets:
-          - 'fajarcell.kelolaaja.id'
-        labels:
-          service: 'Fajar Cellular'
-      - targets:
-          - 'fajarprinting.kelolaaja.id'
-        labels:
-          service: 'Fajar Printing'
-      - targets:
-          - 'suryaliberty.kelolaaja.id'
-        labels:
-          service: 'Surya Liberty'
-      - targets:
-          - 'cheriaholiday.kelolaaja.id'
-        labels:
-          service: 'Cheria Holiday'
-      - targets:
-          - 'bam.kelolaaja.id'
-        labels:
-          service: 'CV. Bumi Aci Mandiri'
-      - targets:
-          - 'cvtanisukses.kelolaaja.id'
-        labels:
-          service: 'CV. Tani Sukses'
-      - targets:
-          - 'sabarjaya.kelolaaja.id'
-        labels:
-          service: 'Sabar Jaya'
+          service: 'Sriendo'
     metrics_path: '/api/v1/metrics'
 
   - job_name: 'node-exporter'
